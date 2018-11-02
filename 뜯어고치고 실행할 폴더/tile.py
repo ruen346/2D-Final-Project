@@ -20,6 +20,7 @@ class Tile:
         self.tile4[4] = load_image('tile4_RU.png')
         self.tile4[5] = load_image('tile4_width.png')
 
+        self.select_sp = load_image('select.png')
         self.in_tower = [i for i in range(60)]
 
 
@@ -62,5 +63,5 @@ class Tile:
 
         if main_state.ui.cho_tower != 0:
             for i in range(60):
-                if self.in_tower[i] == 0 and game_framework.text3[i] == 1:
-                    self.select.draw((i % 10) * 128 + 64, 720 - (i // 10) * 128 - 64)
+                if game_framework.text3[i] == '1':
+                    self.select_sp.draw((i % 10) * 128 + 128, 720 - (i // 10) * 128)

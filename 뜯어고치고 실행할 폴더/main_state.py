@@ -27,7 +27,6 @@ class Ui:
     def __init__(self):
         self.tower1_icon = load_image('tower1_icon.png')
         self.tower1_click = load_image('tower1_click.png')
-        self.select_sp = load_image('select.png')
 
         self.left_click = 0
         self.cho_tower = 0 #0이면 선택안됨
@@ -87,6 +86,7 @@ def handle_events():
                 ui.cho_tower = 0
         elif event.type == SDL_MOUSEBUTTONUP:
             ui.left_click = 0
+            ui.cho_tower = 0
 
         else:
             boy.handle_event(event)
