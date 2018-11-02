@@ -10,6 +10,9 @@ from boy import Boy
 from tile import Tile
 from monster1 import Monster1
 
+mouse_x = 0
+mouse_y = 0
+
 
 name = "MainState"
 
@@ -20,6 +23,7 @@ monster1 = None
 class Ui:
     def __init__(self):
         self.tower1_icon = load_image('tower1_icon.png')
+        self.left_click = 0
 
     def update(self):
         pass
@@ -53,12 +57,22 @@ def resume():
 
 
 def handle_events():
+    global mouse_x
+    global mouse_y
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
             game_framework.quit()
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
-                game_framework.quit()
+            game_framework.quit()
+
+        elif event.type == SDL_MOUSEMOTION:
+            mouse_x, mouse_y = event.x, 720 - event.y
+        elif event.type == SDL_MOUSEBUTTONDOWN:
+            ui.left_click = 1
+        elif event.type == SDL_MOUSEBUTTONUP:
+            ui.left_click = 0
+
         else:
             boy.handle_event(event)
 
