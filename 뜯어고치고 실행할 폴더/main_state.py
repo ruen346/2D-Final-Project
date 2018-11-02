@@ -19,13 +19,13 @@ monster1 = None
 
 class Ui:
     def __init__(self):
-        pass
+        self.tower1_icon = load_image('tower1_icon.png')
 
     def update(self):
         pass
 
     def draw(self):
-        pass
+        self.tower1_icon.draw(1280 - 64, 720 - 64)
 
 
 
