@@ -21,15 +21,23 @@ monster1 = None
 
 
 class Ui:
+    global mouse_x
+    global mouse_y
+
     def __init__(self):
         self.tower1_icon = load_image('tower1_icon.png')
+        self.tower1_click = load_image('tower1_click.png')
         self.left_click = 0
+        self.cho_tower = 0 #0이면 선택안됨
 
     def update(self):
         pass
 
     def draw(self):
         self.tower1_icon.draw(1280 - 64, 720 - 64)
+        if self.left_click == 1:
+            if self.cho_tower == 1:
+                self.tower1_click.draw(mouse_x, mouse_y)
 
 
 
@@ -70,6 +78,9 @@ def handle_events():
             mouse_x, mouse_y = event.x, 720 - event.y
         elif event.type == SDL_MOUSEBUTTONDOWN:
             ui.left_click = 1
+            if mouse_x >= 1280 - 128 and mouse_x <= 1280:
+                if mouse_y >= 720 - 128 and mouse_y <= 720:
+                    ui.cho_tower = 1
         elif event.type == SDL_MOUSEBUTTONUP:
             ui.left_click = 0
 
