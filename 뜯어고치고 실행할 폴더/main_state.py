@@ -81,6 +81,8 @@ def handle_events():
             if mouse_x >= 1280 - 128 and mouse_x <= 1280:
                 if mouse_y >= 720 - 128 and mouse_y <= 720:
                     ui.cho_tower = 1
+            else:
+                ui.cho_tower = 0
         elif event.type == SDL_MOUSEBUTTONUP:
             ui.left_click = 0
 
