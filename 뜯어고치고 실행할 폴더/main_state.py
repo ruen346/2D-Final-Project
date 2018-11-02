@@ -16,9 +16,23 @@ name = "MainState"
 boy = None
 monster1 = None
 
-def enter():
-    global boy, monster1
 
+class Ui:
+    def __init__(self):
+        pass
+
+    def update(self):
+        pass
+
+    def draw(self):
+        pass
+
+
+
+def enter():
+    global ui, boy, monster1
+
+    ui = Ui()
     boy = Boy()
     tile = Tile()
     monster1 = Monster1()
@@ -31,10 +45,9 @@ def enter():
 def exit():
     game_world.clear()
 
+
 def pause():
     pass
-
-
 def resume():
     pass
 
@@ -53,13 +66,14 @@ def handle_events():
 def update():
     for game_object in game_world.all_objects():
         game_object.update()
-
+    ui.update()
 
 
 def draw():
     clear_canvas()
     for game_object in game_world.all_objects():
         game_object.draw()
+    ui.draw()
     update_canvas()
 
 
