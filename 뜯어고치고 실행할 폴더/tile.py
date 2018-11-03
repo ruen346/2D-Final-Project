@@ -21,7 +21,7 @@ class Tile:
         self.tile4[5] = load_image('tile4_width.png')
 
         self.select_sp = load_image('select.png')
-        self.in_tower = [0 for i in range(60)]
+        self.in_tower = [0 for i in range(60)] #타워가 타일에 설치되있는지, 없으면 0
         self.tower1_sp = load_image('tower1.png')
 
 
