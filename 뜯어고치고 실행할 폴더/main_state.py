@@ -30,6 +30,7 @@ class Ui:
         self.tower1_click = load_image('tower1_click.png')
         self.font = load_font('ENCR10B.TTF', 16)
         self.money = 100
+        self.life = 10
 
         self.left_click = 0
         self.cho_tower = 0 #0이면 선택안됨
@@ -43,6 +44,7 @@ class Ui:
             if self.cho_tower == 1:
                 self.tower1_click.draw(mouse_x, mouse_y)
         self.font.draw(1200, 50, str(self.money) + 'G', (0, 0, 0))
+        self.font.draw(1200, 80, str(self.life) + 'Life', (0, 0, 0))
 
 
 
