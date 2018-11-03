@@ -18,6 +18,7 @@ name = "MainState"
 
 boy = None
 monster1 = None
+tile = None
 
 
 class Ui:
@@ -43,7 +44,7 @@ class Ui:
 
 
 def enter():
-    global ui, boy, monster1
+    global ui, boy, monster1, tile
 
     ui = Ui()
     boy = Boy()
@@ -84,7 +85,11 @@ def handle_events():
                     ui.cho_tower = 1
             else:
                 ui.cho_tower = 0
+
         elif event.type == SDL_MOUSEBUTTONUP:
+            if tile.in_tower[int((mouse_x + 64) / 128) + (int((720-mouse_y + 64) / 128) * 10)] == 0 and game_framework.text3[int((mouse_x + 64) / 128) + (int((720-mouse_y + 64) / 128) * 10)] == '1':
+                tile.in_tower[int((mouse_x + 64) / 128) + (int((720-mouse_y + 64) / 128) * 10)] = ui.cho_tower
+            print(int(mouse_x / 128) + (int((720-mouse_y + 64) / 128) * 10))
             ui.left_click = 0
             ui.cho_tower = 0
 
