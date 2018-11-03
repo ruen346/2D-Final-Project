@@ -87,8 +87,8 @@ def handle_events():
                 ui.cho_tower = 0
 
         elif event.type == SDL_MOUSEBUTTONUP:
-            if tile.in_tower[int((mouse_x + 64) / 128) + (int((720-mouse_y + 64) / 128) * 10)] == 0 and game_framework.text3[int((mouse_x + 64) / 128) + (int((720-mouse_y + 64) / 128) * 10)] == '1':
-                tile.in_tower[int((mouse_x + 64) / 128) + (int((720-mouse_y + 64) / 128) * 10)] = ui.cho_tower
+            if tile.in_tower[int((mouse_x - 64) / 128) + (int((720-mouse_y + 64) / 128) * 10)] == 0 and game_framework.text3[int((mouse_x - 64) / 128) + (int((720-mouse_y + 64) / 128) * 10)] == '1':
+                tile.in_tower[int((mouse_x - 64) / 128) + (int((720-mouse_y + 64) / 128) * 10)] = ui.cho_tower
             print(int(mouse_x / 128) + (int((720-mouse_y + 64) / 128) * 10))
             ui.left_click = 0
             ui.cho_tower = 0
