@@ -1,6 +1,8 @@
 from pico2d import *
 import game_framework
 import main_state
+import game_world
+from ball import Ball
 
 class Tile:
     global ui
@@ -23,11 +25,16 @@ class Tile:
         self.select_sp = load_image('select.png')
         self.in_tower = [0 for i in range(60)] #타워가 타일에 설치되있는지, 없으면 0
         self.tower1_sp = load_image('tower1.png')
+        self.time = [0 for i in range(60)]
 
 
 
     def update(self):
-        pass
+        for i in range(60):
+            if self.in_tower[i] == 1 and get_time() - (self.time[i] + 1) >= 1:
+                ball = Ball((i % 10) * 128 + 128, 720 - (i // 10) * 128, 5)
+                game_world.add_object(ball, 1)
+                self.time[i]+=1
 
 
     def draw(self):

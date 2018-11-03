@@ -55,6 +55,7 @@ class Monster1:
         self.x, self.y = 0, 720-320
         self.image = load_image('monster1.png')
         self.move = 1
+        self.hp = 100
         self.event_que = []
         self.cur_state = IdleState
         self.cur_state.enter(self, None)
