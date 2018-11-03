@@ -63,12 +63,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1179" />
+          <entry key="py" value="1192" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="1179" />
+          <entry key="Python" value="1192" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -121,8 +121,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/boy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="106" lean-forward="true" selection-start-line="106" selection-end-line="106" />
+            <state relative-caret-position="399">
+              <caret line="109" column="118" selection-start-line="109" selection-start-column="118" selection-end-line="109" selection-end-column="118" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -300,7 +300,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/grass.png" />
     <entry file="file://$PROJECT_DIR$/ball.py">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/character_right_stand1.png">
       <provider selected="true" editor-type-id="images" />
@@ -309,6 +315,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="836">
           <caret line="51" column="15" selection-start-line="51" selection-start-column="15" selection-end-line="51" selection-end-column="15" />
+          <folding>
+            <marker date="1541145038087" expanded="true" signature="1363:1401" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -368,8 +377,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/boy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="106" lean-forward="true" selection-start-line="106" selection-end-line="106" />
+        <state relative-caret-position="399">
+          <caret line="109" column="118" selection-start-line="109" selection-start-column="118" selection-end-line="109" selection-end-column="118" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>

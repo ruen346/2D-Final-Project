@@ -105,8 +105,9 @@ class RunState:
     @staticmethod
     def do(boy):
 
-        if game_framework.text3[int((boy.x - 64) / 128) + (int((720 - boy.y + 64) / 128) * 10)] == '1':
+        if game_framework.text3[int((boy.x + (boy.width * game_framework.frame_time) - 64) / 128) + (int((720 - boy.y + 64) / 128) * 10)] == '1':
             boy.x += boy.width * game_framework.frame_time
+        if game_framework.text3[int((boy.x - 64) / 128) + (int((720 - (boy.y + (boy.high * game_framework.frame_time)) + 64) / 128) * 10)] == '1':
             boy.y += boy.high * game_framework.frame_time
 
     @staticmethod
