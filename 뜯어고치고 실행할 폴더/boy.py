@@ -104,10 +104,9 @@ class RunState:
 
     @staticmethod
     def do(boy):
-
-        if game_framework.text3[int((boy.x + (boy.width * game_framework.frame_time) - 64) / 128) + (int((720 - boy.y + 64) / 128) * 10)] == '1':
+        if game_framework.text3[int((boy.x + (boy.width * game_framework.frame_time) - 64) / 128) + (int((720 - boy.y + 128) / 128) * 10)] == '1':
             boy.x += boy.width * game_framework.frame_time
-        if game_framework.text3[int((boy.x - 64) / 128) + (int((720 - (boy.y + (boy.high * game_framework.frame_time)) + 64) / 128) * 10)] == '1':
+        if game_framework.text3[int((boy.x - 64) / 128) + (int((720 - (boy.y + (boy.high * game_framework.frame_time)) + 128) / 128) * 10)] == '1':
             boy.y += boy.high * game_framework.frame_time
 
     @staticmethod
@@ -123,7 +122,7 @@ next_state_table = {
 class Boy:
 
     def __init__(self):
-        self.x, self.y = 128 * 4, 720 - 128
+        self.x, self.y = 128 * 4, 720 - 64
         # Boy is only once created, so instance image loading is fine
         self.image = load_image('character_right_stand0.png')
         self.font = load_font('ENCR10B.TTF', 16)
