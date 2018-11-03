@@ -125,18 +125,15 @@ class Boy:
         self.x, self.y = 128 * 4, 720 - 64
         # Boy is only once created, so instance image loading is fine
         self.image = load_image('character_right_stand0.png')
-        self.font = load_font('ENCR10B.TTF', 16)
         self.width = 0
         self.high = 0
         self.event_que = []
         self.cur_state = IdleState
         self.cur_state.enter(self, None)
 
-
     def fire_ball(self):
         ball = Ball(self.x, self.y, 0)
         game_world.add_object(ball, 1)
-
 
     def add_event(self, event):
         self.event_que.insert(0, event)
@@ -151,7 +148,6 @@ class Boy:
 
     def draw(self):
         self.cur_state.draw(self)
-        self.font.draw(self.x - 60, self.y + 50, '(Time: %3.2f)' % get_time(), (255, 255, 0))
 
     def handle_event(self, event):
         if (event.type, event.key) in key_event_table:
