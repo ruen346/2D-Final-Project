@@ -71,7 +71,7 @@ class Tile:
 
         for i in range(60):
             if self.in_tower[i] == 1:
-                self.tower1_sp.draw((i % 10) * 128 + 128, 720 - (i // 10) * 128)
+                self.tower1_sp.draw((i % 10) * 128 + 128, 720 - (i // 10) * 128 + 64)
 
 
         if main_state.ui.cho_tower != 0:

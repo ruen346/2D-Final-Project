@@ -17,6 +17,8 @@
     <sprite>sprites\sprite8</sprite>
     <sprite>sprites\sprite9</sprite>
     <sprite>sprites\sprite10</sprite>
+    <sprite>sprites\tower1_sp</sprite>
+    <sprite>sprites\sprite12</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
