@@ -113,10 +113,10 @@ def update():
         game_object.update()
     ui.update()
 
-    if get_time() - (time + 1) >= 1:
+    if get_time() - (time + 2) >= 2:
         monster1 = Monster1()
         game_world.add_object(monster1, 1)
-        time += 1
+        time += 2
 
 def draw():
     clear_canvas()

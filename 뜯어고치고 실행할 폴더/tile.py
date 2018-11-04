@@ -76,5 +76,5 @@ class Tile:
 
         if main_state.ui.cho_tower != 0:
             for i in range(60):
-                if game_framework.text3[i] == '1':
+                if game_framework.text3[i] == '1' and self.in_tower[i] == 0:
                     self.select_sp.draw((i % 10) * 128 + 128, 720 - (i // 10) * 128)
