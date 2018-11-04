@@ -63,6 +63,9 @@ class Monster1:
     def update(self):
         self.cur_state.do(self)
 
+        if self.x > 1280 + 64:
+            game_world.remove_object(self)
+
     def draw(self):
         self.cur_state.draw(self)
 

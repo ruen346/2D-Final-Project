@@ -13,6 +13,8 @@ from monster1 import Monster1
 mouse_x = 0
 mouse_y = 0
 
+time = 0
+
 
 name = "MainState"
 
@@ -49,12 +51,13 @@ class Ui:
 
 
 def enter():
-    global ui, boy, monster1, tile
+    global ui, boy, monster1, tile, time
 
     ui = Ui()
     boy = Boy()
     tile = Tile()
     monster1 = Monster1()
+    time = get_time()
 
     game_world.add_object(tile, 0)
     game_world.add_object(boy, 1)
@@ -104,10 +107,16 @@ def handle_events():
 
 
 def update():
+    global time, monster1
+
     for game_object in game_world.all_objects():
         game_object.update()
     ui.update()
 
+    if get_time() - (time + 1) >= 1:
+        monster1 = Monster1()
+        game_world.add_object(monster1, 1)
+        time += 1
 
 def draw():
     clear_canvas()
