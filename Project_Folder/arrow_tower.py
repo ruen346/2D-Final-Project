@@ -1,6 +1,7 @@
 from pico2d import *
 import game_world
 import main_state
+import re
 from shot_arrow import Shot_arrow
 
 
@@ -12,9 +13,18 @@ class Arrow_tower:
         self.time = get_time()
 
     def update(self):
+        front_monster_x = 0  # 맨앞 몬스터 좌표
+        front_monster_y = 720  # 맨앞 몬스터 좌표
+        for game_object in game_world.all_objects(): #맨앞 몬스터 위치
+            if str(game_object).find("monster1") != -1:
+                if front_monster_x < game_object.x:
+                    front_monster_x = game_object.x
+                if front_monster_y > game_object.y:
+                    front_monster_y = game_object.y
+
         if get_time() - (self.time + 0.5) >= 0.5:
-            vector = (abs(main_state.front_monster_x - self.x) + abs(self.y - main_state.front_monster_y)) / 10
-            shot_arrow = Shot_arrow(self.x, self.y, (main_state.front_monster_x - self.x) / vector, -(self.y - main_state.front_monster_y) / vector)
+            vector = (abs(front_monster_x - self.x) + abs(self.y - front_monster_y)) / 10
+            shot_arrow = Shot_arrow(self.x, self.y, (front_monster_x - self.x) / vector, -(self.y - front_monster_y) / vector)
             game_world.add_object(shot_arrow, 1)
             self.time += 0.5
 
