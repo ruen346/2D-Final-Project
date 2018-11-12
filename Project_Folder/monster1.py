@@ -40,7 +40,7 @@ class IdleState:
 
         if main_state.front_monster_x < monster1.x:
             main_state.front_monster_x = monster1.x
-        if main_state.front_monster_y < monster1.y:
+        if main_state.front_monster_y > monster1.y:
             main_state.front_monster_y = monster1.y
 
     @staticmethod

@@ -14,11 +14,9 @@ class Arrow_tower:
     def update(self):
         if get_time() - (self.time + 0.5) >= 0.5:
             vector = (abs(main_state.front_monster_x - self.x) + abs(self.y - main_state.front_monster_y)) / 10
-            shot_arrow = Shot_arrow(self.x, self.y, (main_state.front_monster_x - self.x) / vector, (self.y - main_state.front_monster_y) / vector)
+            shot_arrow = Shot_arrow(self.x, self.y, (main_state.front_monster_x - self.x) / vector, -(self.y - main_state.front_monster_y) / vector)
             game_world.add_object(shot_arrow, 1)
             self.time += 0.5
 
     def draw(self):
         self.image.draw(self.x,self.y)
-
-
