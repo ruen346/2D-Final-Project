@@ -1,6 +1,6 @@
 import game_framework
 from pico2d import *
-from ball import Ball
+from shot_arrow import Ball
 
 import random
 import math

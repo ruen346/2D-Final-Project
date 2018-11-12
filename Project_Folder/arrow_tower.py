@@ -1,6 +1,6 @@
 from pico2d import *
 import game_world
-from shot_arrow import Ball
+from shot_arrow import Shot_arrow
 
 
 class Arrow_tower:
@@ -12,8 +12,8 @@ class Arrow_tower:
 
     def update(self):
         if get_time() - (self.time + 1) >= 1:
-            ball = Ball(self.x, self.y, 5)
-            game_world.add_object(ball, 1)
+            shot_arrow = Shot_arrow(self.x, self.y, 10)
+            game_world.add_object(shot_arrow, 1)
             self.time += 1
 
     def draw(self):
