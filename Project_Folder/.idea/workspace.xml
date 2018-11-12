@@ -140,13 +140,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="17" />
-          <entry key="py" value="419" />
+          <entry key="py" value="508" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="17" />
-          <entry key="Python" value="419" />
+          <entry key="Python" value="508" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -180,8 +180,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="48" column="30" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="30" />
+            <state>
+              <caret lean-forward="true" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
                 <marker date="1541991682814" expanded="true" signature="983:1003" ph="..." />
@@ -193,11 +193,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/arrow_tower.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" column="30" lean-forward="true" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+            <state relative-caret-position="361">
+              <caret line="19" column="38" lean-forward="true" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
-                <marker date="1541991682827" expanded="true" signature="248:413" ph="..." />
+                <marker date="1541991775224" expanded="true" signature="254:438" ph="..." />
               </folding>
             </state>
           </provider>
@@ -218,11 +218,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/shot_arrow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+            <state relative-caret-position="323">
+              <caret line="17" column="24" lean-forward="true" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
-                <marker date="1541991682858" expanded="true" signature="119:124" ph="..." />
+                <marker date="1541992042126" expanded="true" signature="125:130" ph="..." />
               </folding>
             </state>
           </provider>
@@ -265,9 +265,9 @@
         <option value="$PROJECT_DIR$/game_world.py" />
         <option value="$PROJECT_DIR$/elf.py" />
         <option value="$PROJECT_DIR$/monster1.py" />
-        <option value="$PROJECT_DIR$/arrow_tower.py" />
         <option value="$PROJECT_DIR$/main_state.py" />
         <option value="$PROJECT_DIR$/tile.py" />
+        <option value="$PROJECT_DIR$/arrow_tower.py" />
         <option value="$PROJECT_DIR$/shot_arrow.py" />
       </list>
     </option>
@@ -457,21 +457,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/arrow_tower.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="30" lean-forward="true" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-            <marker date="1541991682827" expanded="true" signature="248:413" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="48" column="30" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="30" />
+        <state>
+          <caret lean-forward="true" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
             <marker date="1541991682814" expanded="true" signature="983:1003" ph="..." />
@@ -479,13 +468,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shot_arrow.py">
+    <entry file="file://$PROJECT_DIR$/arrow_tower.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+        <state relative-caret-position="361">
+          <caret line="19" column="38" lean-forward="true" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
-            <marker date="1541991682858" expanded="true" signature="119:124" ph="..." />
+            <marker date="1541991775224" expanded="true" signature="254:438" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shot_arrow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="24" lean-forward="true" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+            <marker date="1541992042126" expanded="true" signature="125:130" ph="..." />
           </folding>
         </state>
       </provider>

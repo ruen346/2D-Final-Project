@@ -12,7 +12,7 @@ class Arrow_tower:
 
     def update(self):
         if get_time() - (self.time + 1) >= 1:
-            shot_arrow = Shot_arrow(self.x, self.y, 10)
+            shot_arrow = Shot_arrow(self.x, self.y, 10, 10)
             game_world.add_object(shot_arrow, 1)
             self.time += 1
 
