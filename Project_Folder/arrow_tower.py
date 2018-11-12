@@ -1,7 +1,5 @@
 from pico2d import *
 import game_world
-import main_state
-import re
 from shot_arrow import Shot_arrow
 
 

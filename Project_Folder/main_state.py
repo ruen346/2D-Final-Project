@@ -16,9 +16,6 @@ mouse_y = 0
 
 time = 0
 
-front_monster_x = 0 #맨앞 몬스터 좌표
-front_monster_y = 720 #맨앞 몬스터 좌표
-
 name = "MainState"
 
 elf = None
@@ -113,10 +110,7 @@ def handle_events():
 
 
 def update():
-    global time, monster1, front_monster_x, front_monster_y
-
-    front_monster_x = 0
-    front_monster_y = 720
+    global time, monster1
 
     for game_object in game_world.all_objects():
         game_object.update()

@@ -1,6 +1,5 @@
 import game_framework
 from pico2d import *
-import main_state
 import game_world
 
 PIXEL_PER_METER = (10.0/0.3)
@@ -56,11 +55,6 @@ class Monster1:
 
     def update(self):
         self.cur_state.do(self)
-
-        if main_state.front_monster_x < self.x:
-            main_state.front_monster_x = self.x
-        if main_state.front_monster_y > self.y:
-            main_state.front_monster_y = self.y
 
         if self.x > 1280 + 64:
             game_world.remove_object(self)
