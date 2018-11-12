@@ -1,10 +1,6 @@
 import game_framework
 from pico2d import *
-from shot_arrow import Ball
-
-import random
-import math
-
+import main_state
 import game_world
 
 PIXEL_PER_METER = (10.0/0.3)
@@ -41,6 +37,11 @@ class IdleState:
             monster1.y -= 1.5
         elif monster1.move == 3:
             monster1.x += 1.5
+
+        if main_state.front_monster_x < monster1.x:
+            main_state.front_monster_x = monster1.x
+        if main_state.front_monster_y < monster1.y:
+            main_state.front_monster_y = monster1.y
 
     @staticmethod
     def draw(monster1):

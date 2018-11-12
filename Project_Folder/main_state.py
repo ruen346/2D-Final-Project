@@ -16,6 +16,8 @@ mouse_y = 0
 
 time = 0
 
+front_monster_x = 0 #맨앞 몬스터 좌표
+front_monster_y = 720 #맨앞 몬스터 좌표
 
 name = "MainState"
 

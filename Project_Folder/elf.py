@@ -1,10 +1,5 @@
 import game_framework
 from pico2d import *
-from shot_arrow import Ball
-
-import random
-import math
-
 import game_world
 
 # Elf Run Speed
