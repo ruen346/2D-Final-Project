@@ -9,6 +9,7 @@ import game_world
 from elf import Elf
 from tile import Tile
 from monster1 import Monster1
+from arrow_tower import Arrow_tower
 
 mouse_x = 0
 mouse_y = 0
@@ -97,6 +98,8 @@ def handle_events():
         elif event.type == SDL_MOUSEBUTTONUP:
             if tile.in_tower[int((mouse_x - 64) / 128) + (int((720-mouse_y + 64) / 128) * 10)] == 0 and game_framework.text3[int((mouse_x - 64) / 128) + (int((720-mouse_y + 64) / 128) * 10)] == '1':
                 tile.in_tower[int((mouse_x - 64) / 128) + (int((720-mouse_y + 64) / 128) * 10)] = ui.cho_tower
+                arrow_tower = Arrow_tower(int((mouse_x - 64) / 128 + 0.5) * 128, int((mouse_y + 64) / 128 + 0.5) * 128)
+                game_world.add_object(arrow_tower, 1)
                 tile.time[int((mouse_x - 64) / 128) + (int((720-mouse_y + 64) / 128) * 10)] = int(get_time())
             print(int(mouse_x / 128) + (int((720-mouse_y + 64) / 128) * 10))
             ui.left_click = 0
