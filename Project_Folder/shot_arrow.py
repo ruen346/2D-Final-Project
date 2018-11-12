@@ -1,12 +1,11 @@
 from pico2d import *
 import game_world
 
-class Ball:
+class Shot_arrow:
     image = None
 
-    def __init__(self, x = 400, y = 300, velocity = 1):
-        if Ball.image == None:
-            Ball.image = load_image('ball21x21.png')
+    def __init__(self, x, y, velocity = 1):
+        self.image = load_image('ball21x21.png')
         self.x, self.y, self.velocity = x, y, velocity
 
     def draw(self):

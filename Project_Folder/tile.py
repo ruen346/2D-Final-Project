@@ -26,9 +26,9 @@ class Tile:
         self.time = [0 for i in range(60)]
 
 
-
     def update(self):
         pass
+
 
     def draw(self):
         for i in range(60):

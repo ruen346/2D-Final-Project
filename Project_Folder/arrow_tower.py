@@ -1,6 +1,6 @@
 from pico2d import *
 import game_world
-from ball import Ball
+from shot_arrow import Ball
 
 
 class Arrow_tower:
