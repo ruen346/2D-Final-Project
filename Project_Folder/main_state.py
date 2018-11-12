@@ -6,7 +6,7 @@ from pico2d import *
 import game_framework
 import game_world
 
-from elf import Boy
+from elf import Elf
 from tile import Tile
 from monster1 import Monster1
 
@@ -18,7 +18,7 @@ time = 0
 
 name = "MainState"
 
-boy = None
+elf = None
 monster1 = None
 tile = None
 
@@ -51,16 +51,16 @@ class Ui:
 
 
 def enter():
-    global ui, boy, monster1, tile, time
+    global ui, elf, monster1, tile, time
 
     ui = Ui()
-    boy = Boy()
+    elf = Elf()
     tile = Tile()
     monster1 = Monster1()
     time = get_time()
 
     game_world.add_object(tile, 0)
-    game_world.add_object(boy, 1)
+    game_world.add_object(elf, 1)
     game_world.add_object(monster1, 1)
 
 
@@ -103,7 +103,7 @@ def handle_events():
             ui.cho_tower = 0
 
         else:
-            boy.handle_event(event)
+            elf.handle_event(event)
 
 
 def update():
