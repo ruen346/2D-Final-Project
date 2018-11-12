@@ -7,21 +7,20 @@ import math
 
 import game_world
 
-# Boy Run Speed
+# Elf Run Speed
 PIXEL_PER_METER = (10.0/0.3)
 RUN_SPEED_KMPH = 20.0
 RUN_SPEED_MPM = (RUN_SPEED_KMPH * 1000.0 / 60.0)
 RUN_SPEED_MPS = (RUN_SPEED_MPM / 60.0)
 RUN_SPEED_PPS = (RUN_SPEED_MPS * PIXEL_PER_METER)
 
-# Boy Action Speed
+# Elf Action Speed
 TIME_PER_ACTION = 0.5
 ACTION_PER_TIME = 1.0 / TIME_PER_ACTION
 FRAMES_PER_ACTION = 8
 
 
-
-# Boy Event
+# Elf Event
 RIGHT_DOWN, LEFT_DOWN, UP_DOWN, DOWN_DOWN, RIGHT_UP, LEFT_UP, UP_UP, DOWN_UP, SPACE = range(9)
 
 key_event_table = {
@@ -37,81 +36,79 @@ key_event_table = {
 }
 
 
-# Boy States
-
 class IdleState:
 
     @staticmethod
-    def enter(boy, event):
+    def enter(elf, event):
         if event == RIGHT_DOWN:
-            boy.width += RUN_SPEED_PPS
+            elf.width += RUN_SPEED_PPS
         if event == LEFT_DOWN:
-            boy.width -= RUN_SPEED_PPS
+            elf.width -= RUN_SPEED_PPS
         if event == UP_DOWN:
-            boy.high += RUN_SPEED_PPS
+            elf.high += RUN_SPEED_PPS
         if event == DOWN_DOWN:
-            boy.high -= RUN_SPEED_PPS
+            elf.high -= RUN_SPEED_PPS
         if event == RIGHT_UP:
-            boy.width -= RUN_SPEED_PPS
+            elf.width -= RUN_SPEED_PPS
         if event == LEFT_UP:
-            boy.width += RUN_SPEED_PPS
+            elf.width += RUN_SPEED_PPS
         if event == UP_UP:
-            boy.high -= RUN_SPEED_PPS
+            elf.high -= RUN_SPEED_PPS
         if event == DOWN_UP:
-            boy.high += RUN_SPEED_PPS
-        boy.timer = get_time()
+            elf.high += RUN_SPEED_PPS
+        elf.timer = get_time()
 
     @staticmethod
-    def exit(boy, event):
+    def exit(elf, event):
         if event == SPACE:
-            boy.fire_ball()
+            elf.fire_ball()
         pass
 
     @staticmethod
-    def do(boy):
+    def do(elf):
         pass
 
     @staticmethod
-    def draw(boy):
-        boy.image.draw(boy.x, boy.y)
+    def draw(elf):
+        elf.image.draw(elf.x, elf.y)
 
 
 class RunState:
 
     @staticmethod
-    def enter(boy, event):
+    def enter(elf, event):
         if event == RIGHT_DOWN:
-            boy.width += RUN_SPEED_PPS
+            elf.width += RUN_SPEED_PPS
         if event == LEFT_DOWN:
-            boy.width -= RUN_SPEED_PPS
+            elf.width -= RUN_SPEED_PPS
         if event == UP_DOWN:
-            boy.high += RUN_SPEED_PPS
+            elf.high += RUN_SPEED_PPS
         if event == DOWN_DOWN:
-            boy.high -= RUN_SPEED_PPS
+            elf.high -= RUN_SPEED_PPS
         if event == RIGHT_UP:
-            boy.width -= RUN_SPEED_PPS
+            elf.width -= RUN_SPEED_PPS
         if event == LEFT_UP:
-            boy.width += RUN_SPEED_PPS
+            elf.width += RUN_SPEED_PPS
         if event == UP_UP:
-            boy.high -= RUN_SPEED_PPS
+            elf.high -= RUN_SPEED_PPS
         if event == DOWN_UP:
-            boy.high += RUN_SPEED_PPS
+            elf.high += RUN_SPEED_PPS
 
     @staticmethod
-    def exit(boy, event):
+    def exit(elf, event):
         if event == SPACE:
-            boy.fire_ball()
+            elf.fire_ball()
 
     @staticmethod
-    def do(boy):
-        if game_framework.text3[int((boy.x + (boy.width * game_framework.frame_time) - 64) / 128) + (int((720 - boy.y + 128) / 128) * 10)] == '1':
-            boy.x += boy.width * game_framework.frame_time
-        if game_framework.text3[int((boy.x - 64) / 128) + (int((720 - (boy.y + (boy.high * game_framework.frame_time)) + 128) / 128) * 10)] == '1':
-            boy.y += boy.high * game_framework.frame_time
+    def do(elf):
+        if game_framework.text3[int((elf.x + (elf.width * game_framework.frame_time) - 64) / 128) + (int((720 - elf.y + 128) / 128) * 10)] == '1':
+            elf.x += elf.width * game_framework.frame_time
+        if game_framework.text3[int((elf.x - 64) / 128) + (int((720 - (elf.y + (elf.high * game_framework.frame_time)) + 128) / 128) * 10)] == '1':
+            elf.y += elf.high * game_framework.frame_time
 
     @staticmethod
-    def draw(boy):
-        boy.image.draw(boy.x, boy.y)
+    def draw(elf):
+        elf.image.draw(elf.x, elf.y)
 
 
 next_state_table = {
@@ -119,11 +116,10 @@ next_state_table = {
     RunState: {RIGHT_UP: IdleState, LEFT_UP: IdleState, UP_UP: IdleState, DOWN_UP: IdleState, LEFT_DOWN: IdleState, RIGHT_DOWN: IdleState, UP_DOWN: IdleState, DOWN_DOWN: IdleState, SPACE: RunState},
 }
 
-class Boy:
+class Elf:
 
     def __init__(self):
         self.x, self.y = 128 * 4, 720 - 64
-        # Boy is only once created, so instance image loading is fine
         self.image = load_image('character_right_stand0.png')
         self.width = 0
         self.high = 0

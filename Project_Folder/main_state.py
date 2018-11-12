@@ -6,7 +6,7 @@ from pico2d import *
 import game_framework
 import game_world
 
-from boy import Boy
+from elf import Boy
 from tile import Tile
 from monster1 import Monster1
 
