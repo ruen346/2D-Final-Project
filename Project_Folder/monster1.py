@@ -38,11 +38,6 @@ class IdleState:
         elif monster1.move == 3:
             monster1.x += 1.5
 
-        if main_state.front_monster_x < monster1.x:
-            main_state.front_monster_x = monster1.x
-        if main_state.front_monster_y > monster1.y:
-            main_state.front_monster_y = monster1.y
-
     @staticmethod
     def draw(monster1):
         monster1.image.draw(monster1.x, monster1.y)
@@ -61,6 +56,11 @@ class Monster1:
 
     def update(self):
         self.cur_state.do(self)
+
+        if main_state.front_monster_x < self.x:
+            main_state.front_monster_x = self.x
+        if main_state.front_monster_y > self.y:
+            main_state.front_monster_y = self.y
 
         if self.x > 1280 + 64:
             game_world.remove_object(self)
