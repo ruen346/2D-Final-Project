@@ -28,8 +28,8 @@ class Ui:
     global mouse_y
 
     def __init__(self):
-        self.tower1_icon = load_image('tower1_icon.png')
-        self.tower1_click = load_image('tower1_click.png')
+        self.arrow_tower_icon = load_image('tower1_icon.png')
+        self.arrow_tower_click = load_image('tower1_click.png')
         self.font = load_font('ENCR10B.TTF', 16)
         self.money = 100
         self.life = 10
@@ -41,10 +41,10 @@ class Ui:
         pass
 
     def draw(self):
-        self.tower1_icon.draw(1280 - 64, 720 - 64)
-        if self.left_click == 1:
-            if self.cho_tower == 1:
-                self.tower1_click.draw(mouse_x, mouse_y)
+        self.arrow_tower_icon.draw(1280 - 64, 720 - 64)
+        if self.left_click == 1:#좌클릭
+            if self.cho_tower == 1:#타워1선택
+                self.arrow_tower_click.draw(mouse_x, mouse_y)
         self.font.draw(1200, 50, str(self.money) + 'G', (0, 0, 0))
         self.font.draw(1200, 80, str(self.life) + 'Life', (0, 0, 0))
 
