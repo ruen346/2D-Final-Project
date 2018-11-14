@@ -16,14 +16,15 @@ class Arrow_tower:
         for game_object in game_world.all_objects(): #맨앞 몬스터 위치
             if str(game_object).find("monster1") != -1:
                 if front_monster_x < game_object.x:
-                    front_monster_x = game_object.x
+                    front_monster_x = game_object.x + 32
                 if front_monster_y > game_object.y:
-                    front_monster_y = game_object.y
+                    front_monster_y = game_object.y - 32
 
-        if get_time() - (self.time + 0.5) >= 0.5:
-            vector = (abs(front_monster_x + 64 - self.x) + abs(self.y + 64 - front_monster_y)) / 25
-            shot_arrow = Shot_arrow(self.x, self.y, (front_monster_x - self.x) / vector, -(self.y - front_monster_y) / vector)
-            game_world.add_object(shot_arrow, 1)
+        if get_time() - (self.time + 0.5) >= 0.5: #화살발사
+            if front_monster_y != 720: #없으면 화살 발사 x
+                vector = (abs(front_monster_x - self.x) + abs(self.y - front_monster_y)) / 25
+                shot_arrow = Shot_arrow(self.x, self.y, (front_monster_x - self.x) / vector, (front_monster_y - self.y) / vector)
+                game_world.add_object(shot_arrow, 1)
             self.time += 0.5
 
     def draw(self):
