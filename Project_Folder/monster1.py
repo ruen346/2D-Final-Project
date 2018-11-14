@@ -40,9 +40,10 @@ class IdleState:
         for game_object in game_world.all_objects():  # 맨앞 몬스터 위치
             if str(game_object).find("monster1") != -1:
                 pass
-            
+
         if monster1.hp <= 0:
             game_world.remove_object(monster1)
+
 
     @staticmethod
     def draw(monster1):
