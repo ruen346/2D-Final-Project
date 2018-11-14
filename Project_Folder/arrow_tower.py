@@ -21,7 +21,7 @@ class Arrow_tower:
                     front_monster_y = game_object.y
 
         if get_time() - (self.time + 0.5) >= 0.5:
-            vector = (abs(front_monster_x - self.x) + abs(self.y - front_monster_y)) / 25
+            vector = (abs(front_monster_x + 64 - self.x) + abs(self.y + 64 - front_monster_y)) / 25
             shot_arrow = Shot_arrow(self.x, self.y, (front_monster_x - self.x) / vector, -(self.y - front_monster_y) / vector)
             game_world.add_object(shot_arrow, 1)
             self.time += 0.5

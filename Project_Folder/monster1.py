@@ -38,12 +38,14 @@ class IdleState:
             monster1.x += 1.5
 
         for game_object in game_world.all_objects():  # 맨앞 몬스터 위치
-            if str(game_object).find("monster1") != -1:
-                pass
+            if str(game_object).find("shot_arrow") != -1:
+                if game_object.x > monster1.x - 32 and game_object.x < monster1.x + 128 and game_object.y < monster1.y + 32 and  game_object.y > monster1.y - 128:
+                    game_world.remove_object(game_object)
+                    monster1.hp -= 40
+                    break
 
         if monster1.hp <= 0:
             game_world.remove_object(monster1)
-
 
     @staticmethod
     def draw(monster1):
