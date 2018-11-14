@@ -37,6 +37,13 @@ class IdleState:
         elif monster1.move == 3:
             monster1.x += 1.5
 
+        for game_object in game_world.all_objects():  # 맨앞 몬스터 위치
+            if str(game_object).find("monster1") != -1:
+                pass
+            
+        if monster1.hp <= 0:
+            game_world.remove_object(monster1)
+
     @staticmethod
     def draw(monster1):
         monster1.image.draw(monster1.x, monster1.y)
