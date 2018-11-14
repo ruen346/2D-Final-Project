@@ -35,18 +35,21 @@ class Ui:
         self.money = 100
         self.life = 10
 
-        self.left_click = 0
-        self.cho_tower = 0 #0이면 선택안됨
+        self.left_click = 0 #왼쪽 마우스 누르면 1
+        self.cho_tower = 0 #0이면 선택안됨, 어떤 타워 아이콘 눌렀는지
+        self.cho_build_tower = 0 #0이면 선택안됨, 어떤 설치된 타워를 눌렀는지
 
     def update(self):
         pass
 
     def draw(self):
         self.arrow_tower_icon.draw(1280 - 64, 720 - 64)
+
         if self.left_click == 1:#좌클릭
             if self.cho_tower == 1:#타워1선택
                 self.arrow_tower_range.draw(mouse_x,mouse_y)
                 self.arrow_tower_click.draw(mouse_x, mouse_y)
+
         self.font.draw(1200, 50, str(self.money) + 'G', (0, 0, 0))
         self.font.draw(1200, 80, str(self.life) + 'Life', (0, 0, 0))
 
@@ -86,8 +89,11 @@ def handle_events():
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             game_framework.quit()
 
+        ############################################################################# 마우스 움직임
         elif event.type == SDL_MOUSEMOTION:
             mouse_x, mouse_y = event.x, 720 - event.y
+
+        ############################################################################# 마우스 좌클릭
         elif event.type == SDL_MOUSEBUTTONDOWN:
             ui.left_click = 1
             if mouse_x >= 1280 - 128 and mouse_x <= 1280:
@@ -96,6 +102,12 @@ def handle_events():
             else:
                 ui.cho_tower = 0
 
+            if tile.in_tower[int((mouse_x - 64) / 128) + (int((720-mouse_y + 64) / 128) * 10)] == 1:
+                ui.cho_build_tower = 1
+            else
+                ui.cho_build_tower = 0
+
+        ############################################################################# 마우스 좌클릭 땜
         elif event.type == SDL_MOUSEBUTTONUP:
             if tile.in_tower[int((mouse_x - 64) / 128) + (int((720-mouse_y + 64) / 128) * 10)] == 0 and game_framework.text3[int((mouse_x - 64) / 128) + (int((720-mouse_y + 64) / 128) * 10)] == '1':
                 tile.in_tower[int((mouse_x - 64) / 128) + (int((720-mouse_y + 64) / 128) * 10)] = ui.cho_tower
