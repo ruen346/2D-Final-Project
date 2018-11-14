@@ -38,6 +38,8 @@ class Ui:
         self.left_click = 0 #왼쪽 마우스 누르면 1
         self.cho_tower = 0 #0이면 선택안됨, 어떤 타워 아이콘 눌렀는지
         self.cho_build_tower = 0 #0이면 선택안됨, 어떤 설치된 타워를 눌렀는지
+        self.cho_build_x = 0 #설치된 타워 눌렀을때 좌표x
+        self.cho_build_y = 0 #설치된 타워 눌렀을때 좌표y
 
     def update(self):
         pass
@@ -49,6 +51,9 @@ class Ui:
             if self.cho_tower == 1:#타워1선택
                 self.arrow_tower_range.draw(mouse_x,mouse_y)
                 self.arrow_tower_click.draw(mouse_x, mouse_y)
+
+        if self.cho_build_tower == 1:
+            self.arrow_tower_range.draw(self.cho_build_x,self.cho_build_y)
 
         self.font.draw(1200, 50, str(self.money) + 'G', (0, 0, 0))
         self.font.draw(1200, 80, str(self.life) + 'Life', (0, 0, 0))
@@ -104,7 +109,9 @@ def handle_events():
 
             if tile.in_tower[int((mouse_x - 64) / 128) + (int((720-mouse_y + 64) / 128) * 10)] == 1:
                 ui.cho_build_tower = 1
-            else
+                ui.cho_build_x = int((mouse_x - 64) / 128) * 128 + 128
+                ui.cho_build_y = int((mouse_y + 128) / 128) * 128 - 64
+            else:
                 ui.cho_build_tower = 0
 
         ############################################################################# 마우스 좌클릭 땜
