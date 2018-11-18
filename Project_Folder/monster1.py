@@ -44,6 +44,11 @@ class IdleState:
                     game_world.remove_object(game_object)
                     monster1.hp -= 40
                     break
+            elif str(game_object).find("elf_arrow") != -1: # shot_arrow와 충돌시
+                if game_object.x > monster1.x - 32 and game_object.x < monster1.x + 128 and game_object.y < monster1.y + 32 and  game_object.y > monster1.y - 128:
+                    game_world.remove_object(game_object)
+                    monster1.hp -= 40
+                    break
 
         if monster1.hp <= 0:
             game_world.remove_object(monster1)

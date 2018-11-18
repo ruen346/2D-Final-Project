@@ -71,12 +71,16 @@ class RunState:
     def enter(elf, event):
         if event == RIGHT_DOWN:
             elf.width += RUN_SPEED_PPS
+            elf.look_vector = 3
         if event == LEFT_DOWN:
             elf.width -= RUN_SPEED_PPS
+            elf.look_vector = 2
         if event == UP_DOWN:
             elf.high += RUN_SPEED_PPS
+            elf.look_vector = 0
         if event == DOWN_DOWN:
             elf.high -= RUN_SPEED_PPS
+            elf.look_vector = 1
         if event == RIGHT_UP:
             elf.width -= RUN_SPEED_PPS
         if event == LEFT_UP:
@@ -117,6 +121,7 @@ class Elf:
         self.event_que = []
         self.cur_state = IdleState
         self.cur_state.enter(self, None)
+        self.look_vector = 1 #0부터 상하좌우
 
     def add_event(self, event):
         self.event_que.insert(0, event)
