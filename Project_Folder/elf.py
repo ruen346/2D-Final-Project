@@ -136,3 +136,6 @@ class Elf:
         if (event.type, event.key) in key_event_table:
             key_event = key_event_table[(event.type, event.key)]
             self.add_event(key_event)
+
+        if event.type == SDL_KEYDOWN and event.key == SDLK_SPACE:
+            pass
