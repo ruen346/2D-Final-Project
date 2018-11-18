@@ -1,6 +1,7 @@
 import game_framework
 from pico2d import *
 import game_world
+import main_state
 
 PIXEL_PER_METER = (10.0/0.3)
 RUN_SPEED_KMPH = 20.0
@@ -37,8 +38,8 @@ class IdleState:
         elif monster1.move == 3:
             monster1.x += 1.5
 
-        for game_object in game_world.all_objects():  # 맨앞 몬스터 위치
-            if str(game_object).find("shot_arrow") != -1:
+        for game_object in game_world.all_objects():
+            if str(game_object).find("shot_arrow") != -1: # shot_arrow와 충돌시
                 if game_object.x > monster1.x - 32 and game_object.x < monster1.x + 128 and game_object.y < monster1.y + 32 and  game_object.y > monster1.y - 128:
                     game_world.remove_object(game_object)
                     monster1.hp -= 40
@@ -46,6 +47,7 @@ class IdleState:
 
         if monster1.hp <= 0:
             game_world.remove_object(monster1)
+            main_state.ui.money += 10
 
     @staticmethod
     def draw(monster1):
