@@ -20,12 +20,12 @@ class Arrow_tower:
                 if front_monster_y > game_object.y:
                     front_monster_y = game_object.y - 32
 
-        if get_time() - (self.time + 0.5) >= 0.5: #화살발사
+        if get_time() >= self.time + 0.5: #화살발사
             if front_monster_y != 720: #없으면 화살 발사 x
                 vector = (abs(front_monster_x - self.x) + abs(self.y - front_monster_y)) / 25
                 shot_arrow = Shot_arrow(self.x, self.y, (front_monster_x - self.x) / vector, (front_monster_y - self.y) / vector)
                 game_world.add_object(shot_arrow, 1)
-            self.time += 0.5
+            self.time = get_time()
 
     def draw(self):
         self.image.draw(self.x,self.y)

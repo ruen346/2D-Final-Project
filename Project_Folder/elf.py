@@ -123,6 +123,7 @@ class Elf:
         self.cur_state = IdleState
         self.cur_state.enter(self, None)
         self.look_vector = 1 #0부터 상하좌우
+        self.time = get_time()
 
     def add_event(self, event):
         self.event_que.insert(0, event)
@@ -144,12 +145,15 @@ class Elf:
             self.add_event(key_event)
 
         if event.type == SDL_KEYDOWN and event.key == SDLK_SPACE:
-            if self.look_vector == 0:
-                elf_arrow = Elf_arrow(self.x, self.y, 0, 10)
-            elif self.look_vector == 1:
-                elf_arrow = Elf_arrow(self.x, self.y, 0, -10)
-            elif self.look_vector == 2:
-                elf_arrow = Elf_arrow(self.x, self.y, -10, 0)
-            elif self.look_vector == 3:
-                elf_arrow = Elf_arrow(self.x, self.y, 10, 0)
-            game_world.add_object(elf_arrow, 1)
+            if get_time() - (self.time + 0.5) >= 0.5:  # 화살발사
+                if self.look_vector == 0:
+                    elf_arrow = Elf_arrow(self.x, self.y, 0, 10)
+                elif self.look_vector == 1:
+                    elf_arrow = Elf_arrow(self.x, self.y, 0, -10)
+                elif self.look_vector == 2:
+                    elf_arrow = Elf_arrow(self.x, self.y, -10, 0)
+                elif self.look_vector == 3:
+                    elf_arrow = Elf_arrow(self.x, self.y, 10, 0)
+
+                game_world.add_object(elf_arrow, 1)
+                self.time = get_time() + 0.5
