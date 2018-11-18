@@ -1,6 +1,7 @@
 import game_framework
 from pico2d import *
 import game_world
+from elf_arrow import Elf_arrow
 
 # Elf Run Speed
 PIXEL_PER_METER = (10.0/0.3)
@@ -143,4 +144,12 @@ class Elf:
             self.add_event(key_event)
 
         if event.type == SDL_KEYDOWN and event.key == SDLK_SPACE:
-            pass
+            if self.look_vector == 0:
+                elf_arrow = Elf_arrow(self.x, self.y, 0, 10)
+            elif self.look_vector == 1:
+                elf_arrow = Elf_arrow(self.x, self.y, 0, -10)
+            elif self.look_vector == 2:
+                elf_arrow = Elf_arrow(self.x, self.y, -10, 0)
+            elif self.look_vector == 3:
+                elf_arrow = Elf_arrow(self.x, self.y, 10, 0)
+            game_world.add_object(elf_arrow, 1)
