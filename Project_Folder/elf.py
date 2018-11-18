@@ -145,7 +145,7 @@ class Elf:
             self.add_event(key_event)
 
         if event.type == SDL_KEYDOWN and event.key == SDLK_SPACE:
-            if get_time() - (self.time + 0.5) >= 0.5:  # 화살발사
+            if get_time() >= self.time + 0.3:  # 화살발사
                 if self.look_vector == 0:
                     elf_arrow = Elf_arrow(self.x, self.y, 0, 10)
                 elif self.look_vector == 1:
@@ -156,4 +156,4 @@ class Elf:
                     elf_arrow = Elf_arrow(self.x, self.y, 10, 0)
 
                 game_world.add_object(elf_arrow, 1)
-                self.time = get_time() + 0.5
+                self.time = get_time()
