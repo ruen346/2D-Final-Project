@@ -16,7 +16,7 @@ FRAMES_PER_ACTION = 8
 
 
 # Elf Event
-RIGHT_DOWN, LEFT_DOWN, UP_DOWN, DOWN_DOWN, RIGHT_UP, LEFT_UP, UP_UP, DOWN_UP, SPACE = range(9)
+RIGHT_DOWN, LEFT_DOWN, UP_DOWN, DOWN_DOWN, RIGHT_UP, LEFT_UP, UP_UP, DOWN_UP = range(8)
 
 key_event_table = {
     (SDL_KEYDOWN, SDLK_RIGHT): RIGHT_DOWN,
@@ -27,7 +27,6 @@ key_event_table = {
     (SDL_KEYUP, SDLK_LEFT): LEFT_UP,
     (SDL_KEYUP, SDLK_UP): UP_UP,
     (SDL_KEYUP, SDLK_DOWN): DOWN_UP,
-    (SDL_KEYDOWN, SDLK_SPACE): SPACE
 }
 
 
@@ -55,8 +54,6 @@ class IdleState:
 
     @staticmethod
     def exit(elf, event):
-        if event == SPACE:
-            elf.fire_ball()
         pass
 
     @staticmethod
@@ -91,8 +88,7 @@ class RunState:
 
     @staticmethod
     def exit(elf, event):
-        if event == SPACE:
-            elf.fire_ball()
+        pass
 
     @staticmethod
     def do(elf):
@@ -107,8 +103,8 @@ class RunState:
 
 
 next_state_table = {
-    IdleState: {RIGHT_UP: RunState, LEFT_UP: RunState, UP_UP: RunState, DOWN_UP: RunState, RIGHT_DOWN: RunState, LEFT_DOWN: RunState, UP_DOWN: RunState, DOWN_DOWN: RunState, SPACE: IdleState},
-    RunState: {RIGHT_UP: IdleState, LEFT_UP: IdleState, UP_UP: IdleState, DOWN_UP: IdleState, LEFT_DOWN: IdleState, RIGHT_DOWN: IdleState, UP_DOWN: IdleState, DOWN_DOWN: IdleState, SPACE: RunState},
+    IdleState: {RIGHT_UP: RunState, LEFT_UP: RunState, UP_UP: RunState, DOWN_UP: RunState, RIGHT_DOWN: RunState, LEFT_DOWN: RunState, UP_DOWN: RunState, DOWN_DOWN: RunState},
+    RunState: {RIGHT_UP: IdleState, LEFT_UP: IdleState, UP_UP: IdleState, DOWN_UP: IdleState, LEFT_DOWN: IdleState, RIGHT_DOWN: IdleState, UP_DOWN: IdleState, DOWN_DOWN: IdleState},
 }
 
 class Elf:
@@ -121,10 +117,6 @@ class Elf:
         self.event_que = []
         self.cur_state = IdleState
         self.cur_state.enter(self, None)
-
-    def fire_ball(self):
-        ball = Ball(self.x, self.y, 0)
-        game_world.add_object(ball, 1)
 
     def add_event(self, event):
         self.event_que.insert(0, event)
