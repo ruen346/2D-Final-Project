@@ -63,7 +63,10 @@ class IdleState:
 
     @staticmethod
     def draw(elf):
-        elf.stand0_image.draw(elf.x, elf.y)
+        if get_time() % 2 <= 1.85:
+            elf.stand0_image.draw(elf.x, elf.y)
+        else:
+            elf.stand1_image.draw(elf.x, elf.y)
 
 
 class RunState:
