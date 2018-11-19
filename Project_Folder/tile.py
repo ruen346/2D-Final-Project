@@ -7,9 +7,9 @@ class Tile:
     global ui
 
     def __init__(self):
-        self.tile1 = load_image("tile5.png")
-        self.tile2 = load_image('tile2.png')
-        self.tile3 = load_image('tile3.png')
+        self.tile1 = load_image("image\\tile5.png")
+        self.tile2 = load_image('image\\tile2.png')
+        self.tile3 = load_image('image\\tile3.png')
         self.tile1_up = load_image('tile1_up.png')
         self.tile1_left = load_image('tile1_left.png')
         self.tile1_down = load_image('tile1_down.png')

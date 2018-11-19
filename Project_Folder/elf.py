@@ -119,8 +119,8 @@ class Elf:
 
     def __init__(self):
         self.x, self.y = 128 * 4, 720 - 64
-        self.stand0_image = load_image('character_right_stand0.png')
-        self.stand1_image = load_image('character_right_stand1.png')
+        self.stand0_image = load_image('image\\character_right_stand0.png')
+        self.stand1_image = load_image('image\\character_right_stand1.png')
         self.width = 0
         self.high = 0
         self.event_que = []
