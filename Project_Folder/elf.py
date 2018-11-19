@@ -134,6 +134,9 @@ class Elf:
         self.event_que.insert(0, event)
 
     def update(self):
+        if self.y < 360:
+            main_state.elf_move_window_y = 360 - self.y
+
         self.cur_state.do(self)
         if len(self.event_que) > 0:
             event = self.event_que.pop()
