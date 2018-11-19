@@ -22,8 +22,8 @@ class Tile:
         self.tile4[5] = load_image('image\\tile4_width.png')
 
         self.select_sp = load_image('image\\select.png')
-        self.in_tower = [0 for i in range(60)] #타워가 타일에 설치되있는지, 없으면 0
-        self.time = [0 for i in range(60)]
+        self.in_tower = [0 for i in range(240)] #타워가 타일에 설치되있는지, 없으면 0
+        self.time = [0 for i in range(240)]
 
 
     def update(self):
@@ -31,39 +31,39 @@ class Tile:
 
 
     def draw(self):
-        for i in range(60):
+        for i in range(240):
             if game_framework.text2[i] == '1':
-                self.tile1.draw((i % 10) * 128 + 64, 720 - (i // 10) * 128 - 64)
+                self.tile1.draw((i % 20) * 128 + 64, 720 - (i // 20) * 128 - 64)
             elif game_framework.text2[i] == '2':
-                self.tile2.draw((i % 10) * 128 + 64, 720 - (i // 10) * 128 - 64)
+                self.tile2.draw((i % 20) * 128 + 64, 720 - (i // 20) * 128 - 64)
             elif game_framework.text2[i] == '3':
-                self.tile3.draw((i % 10) * 128 + 64, 720 - (i // 10) * 128 - 64)
+                self.tile3.draw((i % 20) * 128 + 64, 720 - (i // 20) * 128 - 64)
             elif game_framework.text2[i] == '4':
-                self.tile4[0].draw((i % 10) * 128 + 64, 720 - (i // 10) * 128 - 64)
+                self.tile4[0].draw((i % 20) * 128 + 64, 720 - (i // 20) * 128 - 64)
             elif game_framework.text2[i] == '5':
-                self.tile4[1].draw((i % 10) * 128 + 64, 720 - (i // 10) * 128 - 64)
+                self.tile4[1].draw((i % 20) * 128 + 64, 720 - (i // 20) * 128 - 64)
             elif game_framework.text2[i] == '6':
-                self.tile4[2].draw((i % 10) * 128 + 64, 720 - (i // 10) * 128 - 64)
+                self.tile4[2].draw((i % 20) * 128 + 64, 720 - (i // 20) * 128 - 64)
             elif game_framework.text2[i] == '7':
-                self.tile4[3].draw((i % 10) * 128 + 64, 720 - (i // 10) * 128 - 64)
+                self.tile4[3].draw((i % 20) * 128 + 64, 720 - (i // 20) * 128 - 64)
             elif game_framework.text2[i] == '8':
-                self.tile4[4].draw((i % 10) * 128 + 64, 720 - (i // 10) * 128 - 64)
+                self.tile4[4].draw((i % 20) * 128 + 64, 720 - (i // 20) * 128 - 64)
             elif game_framework.text2[i] == '9':
-                self.tile4[5].draw((i % 10) * 128 + 64, 720 - (i // 10) * 128 - 64)
+                self.tile4[5].draw((i % 20) * 128 + 64, 720 - (i // 20) * 128 - 64)
 
-        for i in range(60):
+        for i in range(240):
             if game_framework.text3[i] == '1':
-                self.tile1_up.draw((i % 10) * 128 + 128, 720 - (i // 10) * 128)
+                self.tile1_up.draw((i % 20) * 128 + 128, 720 - (i // 20) * 128)
             elif game_framework.text3[i] == '2':
-                self.tile1_left.draw((i % 10) * 128 + 160, 720 - (i // 10) * 128 - 32)
+                self.tile1_left.draw((i % 20) * 128 + 160, 720 - (i // 20) * 128 - 32)
             elif game_framework.text3[i] == '3':
-                self.tile1_down.draw((i % 10) * 128 + 96, 720 - (i // 10) * 128 + 32)
+                self.tile1_down.draw((i % 20) * 128 + 96, 720 - (i // 20) * 128 + 32)
             elif game_framework.text3[i] == '4':
-                self.tile1_left.draw((i % 10) * 128 + 160, 720 - (i // 10) * 128 - 32)
-                self.tile1_down.draw((i % 10) * 128 + 96, 720 - (i // 10) * 128 + 32)
+                self.tile1_left.draw((i % 20) * 128 + 160, 720 - (i // 20) * 128 - 32)
+                self.tile1_down.draw((i % 20) * 128 + 96, 720 - (i // 20) * 128 + 32)
 
 
         if main_state.ui.cho_tower != 0:
-            for i in range(60):
+            for i in range(240):
                 if game_framework.text3[i] == '1' and self.in_tower[i] == 0:
-                    self.select_sp.draw((i % 10) * 128 + 128, 720 - (i // 10) * 128)
+                    self.select_sp.draw((i % 20) * 128 + 128, 720 - (i // 20) * 128)
