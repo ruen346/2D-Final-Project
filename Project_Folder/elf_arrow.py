@@ -5,7 +5,7 @@ class Elf_arrow:
     image = None
 
     def __init__(self, x, y, x_vector, y_vector):
-        self.image = load_image('ball21x21.png')
+        self.image = load_image('image\\ball21x21.png')
         self.x, self.y, self.x_vector, self.y_vector = x, y, x_vector, y_vector
 
     def draw(self):

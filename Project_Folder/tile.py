@@ -12,7 +12,7 @@ class Tile:
         self.tile3 = load_image('image\\tile3.png')
         self.tile1_up = load_image('image\\tile1_up.png')
         self.tile1_left = load_image('image\\tile1_left.png')
-        self.tile1_down = load_image('imgae\\tile1_down.png')
+        self.tile1_down = load_image('image\\tile1_down.png')
         self.tile4 = [None, None, None, None, None, None]
         self.tile4[0] = load_image('image\\tile4_high.png')
         self.tile4[1] = load_image('image\\tile4_LD.png')
@@ -21,7 +21,7 @@ class Tile:
         self.tile4[4] = load_image('image\\tile4_RU.png')
         self.tile4[5] = load_image('image\\tile4_width.png')
 
-        self.select_sp = load_image('select.png')
+        self.select_sp = load_image('image\\select.png')
         self.in_tower = [0 for i in range(60)] #타워가 타일에 설치되있는지, 없으면 0
         self.time = [0 for i in range(60)]
 

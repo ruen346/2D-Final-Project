@@ -7,7 +7,7 @@ class Arrow_tower:
 
     def __init__(self, x, y):
         self.x, self.y = x, y
-        self.image = load_image('tower1.png')
+        self.image = load_image('image\\tower1.png')
         self.time = get_time()
 
     def update(self):

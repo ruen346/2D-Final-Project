@@ -28,9 +28,9 @@ class Ui:
     global mouse_y
 
     def __init__(self):
-        self.arrow_tower_icon = load_image('tower1_icon.png')
-        self.arrow_tower_click = load_image('tower1_click.png')
-        self.arrow_tower_range = load_image('arrow_tower_range.png')
+        self.arrow_tower_icon = load_image('image\\tower1_icon.png')
+        self.arrow_tower_click = load_image('image\\tower1_click.png')
+        self.arrow_tower_range = load_image('image\\arrow_tower_range.png')
         self.font = load_font('ENCR10B.TTF', 16)
         self.money = 100
         self.life = 10
