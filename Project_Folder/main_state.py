@@ -14,6 +14,9 @@ from arrow_tower import Arrow_tower
 mouse_x = 0
 mouse_y = 0
 
+elf_move_window_x = 0
+elf_move_window_y = 0
+
 time = 0
 
 name = "MainState"

@@ -56,7 +56,7 @@ class IdleState:
 
     @staticmethod
     def draw(monster1):
-        monster1.image.draw(monster1.x, monster1.y)
+        monster1.image.draw(monster1.x + main_state.elf_move_window_x, monster1.y + main_state.elf_move_window_y)
 
 
 class Monster1:

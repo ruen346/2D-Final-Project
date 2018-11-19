@@ -1,6 +1,7 @@
 import game_framework
 from pico2d import *
 import game_world
+import main_state
 from elf_arrow import Elf_arrow
 
 # Elf Run Speed
@@ -64,9 +65,9 @@ class IdleState:
     @staticmethod
     def draw(elf):
         if get_time() % 2 <= 1.85:
-            elf.stand0_image.draw(elf.x, elf.y)
+            elf.stand0_image.draw(elf.x + main_state.elf_move_window_x, elf.y + main_state.elf_move_window_y)
         else:
-            elf.stand1_image.draw(elf.x, elf.y)
+            elf.stand1_image.draw(elf.x + main_state.elf_move_window_x, elf.y + main_state.elf_move_window_y)
 
 
 class RunState:
@@ -100,14 +101,14 @@ class RunState:
 
     @staticmethod
     def do(elf):
-        if game_framework.text3[int((elf.x + (elf.width * game_framework.frame_time) - 64) / 128) + (int((720 - elf.y + 128) / 128) * 10)] == '1':
+        if game_framework.text3[int((elf.x + (elf.width * game_framework.frame_time) - 64) / 128) + (int((720 - elf.y + 128) / 128) * 20)] == '1':
             elf.x += elf.width * game_framework.frame_time
-        if game_framework.text3[int((elf.x - 64) / 128) + (int((720 - (elf.y + (elf.high * game_framework.frame_time)) + 128) / 128) * 10)] == '1':
+        if game_framework.text3[int((elf.x - 64) / 128) + (int((720 - (elf.y + (elf.high * game_framework.frame_time)) + 128) / 128) * 20)] == '1':
             elf.y += elf.high * game_framework.frame_time
 
     @staticmethod
     def draw(elf):
-        elf.stand0_image.draw(elf.x, elf.y)
+        elf.stand0_image.draw(elf.x + main_state.elf_move_window_x, elf.y + main_state.elf_move_window_y)
 
 
 next_state_table = {

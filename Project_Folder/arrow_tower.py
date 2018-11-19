@@ -1,5 +1,6 @@
 from pico2d import *
 import game_world
+import main_state
 from shot_arrow import Shot_arrow
 
 
@@ -28,4 +29,4 @@ class Arrow_tower:
             self.time = get_time()
 
     def draw(self):
-        self.image.draw(self.x,self.y)
+        self.image.draw(self.x + main_state.elf_move_window_x, self.y + main_state.elf_move_window_y)
