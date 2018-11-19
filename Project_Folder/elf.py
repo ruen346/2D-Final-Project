@@ -63,7 +63,7 @@ class IdleState:
 
     @staticmethod
     def draw(elf):
-        elf.image.draw(elf.x, elf.y)
+        elf.stand0_image.draw(elf.x, elf.y)
 
 
 class RunState:
@@ -104,7 +104,7 @@ class RunState:
 
     @staticmethod
     def draw(elf):
-        elf.image.draw(elf.x, elf.y)
+        elf.stand0_image.draw(elf.x, elf.y)
 
 
 next_state_table = {
@@ -116,7 +116,8 @@ class Elf:
 
     def __init__(self):
         self.x, self.y = 128 * 4, 720 - 64
-        self.image = load_image('character_right_stand0.png')
+        self.stand0_image = load_image('character_right_stand0.png')
+        self.stand1_image = load_image('character_right_stand1.png')
         self.width = 0
         self.high = 0
         self.event_que = []
