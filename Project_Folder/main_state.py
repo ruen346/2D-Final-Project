@@ -142,15 +142,10 @@ def update():
         game_world.add_object(monster1, 1)
         time += 2
 
+
 def draw():
     clear_canvas()
     for game_object in game_world.all_objects():
         game_object.draw()
     ui.draw()
     update_canvas()
-
-
-
-
-
-
