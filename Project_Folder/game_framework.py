@@ -1,8 +1,8 @@
-f = open("map.txt", 'r')
+f = open("map\\map.txt", 'r')
 text2s = f.read()
 text2 = text2s.split()
 
-f2 = open("map2.txt", 'r')
+f2 = open("map\\map2.txt", 'r')
 text3s = f2.read()
 text3 = text3s.split()
 
