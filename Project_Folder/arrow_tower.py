@@ -6,8 +6,8 @@ from shot_arrow import Shot_arrow
 
 class Arrow_tower:
 
-    def __init__(self, x, y):
-        self.x, self.y = x, y
+    def __init__(self, i):
+        self.x, self.y = (i % 20) * 128 + 128, 720 - (i // 20) * 128
         self.image = load_image('image\\tower1.png')
         self.time = get_time()
 

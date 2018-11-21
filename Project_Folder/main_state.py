@@ -121,9 +121,10 @@ def handle_events():
             if tile.in_tower[int((mouse_x - elf_move_window_x - 64) / 128) + (int((720-(mouse_y - elf_move_window_y) + 64) / 128) * 20)] == 0 and game_framework.text3[int((mouse_x - elf_move_window_x - 64) / 128) + (int((720-(mouse_y - elf_move_window_y) + 64) / 128) * 20)] == '1':
                 tile.in_tower[int((mouse_x - elf_move_window_x - 64) / 128) + (int((720-(mouse_y - elf_move_window_y) + 64) / 128) * 20)] = ui.cho_tower
                 if(ui.cho_tower == 1): #타워1설치
-                    arrow_tower = Arrow_tower(int((mouse_x - elf_move_window_x - 64) / 128) * 128 + 128, int((mouse_y - elf_move_window_y + 64) / 128 + 0.5) * 128)
+                    i = int((mouse_x - elf_move_window_x - 64) / 128) + (int((720-(mouse_y - elf_move_window_y) + 64) / 128) * 20)
+                    arrow_tower = Arrow_tower(i) #(i % 20) * 128 + 128 + main_state.elf_move_window_x, 720 - (i // 20) * 128 + main_state.elf_move_window_y
                     game_world.add_object(arrow_tower, 1)
-                    tile.time[int((mouse_x - elf_move_window_x - 64) / 128) + (int((720-(mouse_y - elf_move_window_y) + 64) / 128) * 20)] = int(get_time())
+                    tile.time[i] = int(get_time())
             ui.left_click = 0
             ui.cho_tower = 0
 
