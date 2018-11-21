@@ -56,7 +56,7 @@ class Ui:
                 self.arrow_tower_click.draw(mouse_x, mouse_y)
 
         if self.cho_build_tower == 1:
-            self.arrow_tower_range.draw(self.cho_build_x,self.cho_build_y)
+            self.arrow_tower_range.draw(self.cho_build_x + elf_move_window_x,self.cho_build_y + elf_move_window_y)
 
         self.font.draw(1200, 50, str(self.money) + 'G', (0, 0, 0))
         self.font.draw(1200, 80, str(self.life) + 'Life', (0, 0, 0))
@@ -109,7 +109,7 @@ def handle_events():
             else:
                 ui.cho_tower = 0
 
-            if tile.in_tower[int((mouse_x - 64) / 128) + (int((720-mouse_y + 64) / 128) * 20)] == 1:
+            if tile.in_tower[int((mouse_x - elf_move_window_x - 64) / 128) + (int((720-(mouse_y - elf_move_window_y) + 64) / 128) * 20)] == 1:
                 ui.cho_build_tower = 1
                 ui.cho_build_x = int((mouse_x - 64) / 128) * 128 + 128
                 ui.cho_build_y = int((mouse_y + 128) / 128) * 128 - 64
@@ -118,12 +118,12 @@ def handle_events():
 
         ############################################################################# 마우스 좌클릭 땜
         elif event.type == SDL_MOUSEBUTTONUP:
-            if tile.in_tower[int((mouse_x - elf_move_window_x - 64) / 128) + (int((720-mouse_y - elf_move_window_y + 64) / 128) * 20)] == 0 and game_framework.text3[int((mouse_x - elf_move_window_x - 64) / 128) + (int((720-mouse_y - elf_move_window_y + 64) / 128) * 20)] == '1':
-                tile.in_tower[int((mouse_x - elf_move_window_x - 64) / 128) + (int((720-mouse_y - elf_move_window_y + 64) / 128) * 20)] = ui.cho_tower
+            if tile.in_tower[int((mouse_x - elf_move_window_x - 64) / 128) + (int((720-(mouse_y - elf_move_window_y) + 64) / 128) * 20)] == 0 and game_framework.text3[int((mouse_x - elf_move_window_x - 64) / 128) + (int((720-(mouse_y - elf_move_window_y) + 64) / 128) * 20)] == '1':
+                tile.in_tower[int((mouse_x - elf_move_window_x - 64) / 128) + (int((720-(mouse_y - elf_move_window_y) + 64) / 128) * 20)] = ui.cho_tower
                 if(ui.cho_tower == 1): #타워1설치
                     arrow_tower = Arrow_tower(int((mouse_x - elf_move_window_x - 64) / 128) * 128 + 128, int((mouse_y - elf_move_window_y + 64) / 128 + 0.5) * 128)
                     game_world.add_object(arrow_tower, 1)
-                    tile.time[int((mouse_x - elf_move_window_x - 64) / 128) + (int((720-mouse_y - elf_move_window_y + 64) / 128) * 20)] = int(get_time())
+                    tile.time[int((mouse_x - elf_move_window_x - 64) / 128) + (int((720-(mouse_y - elf_move_window_y) + 64) / 128) * 20)] = int(get_time())
             ui.left_click = 0
             ui.cho_tower = 0
 
