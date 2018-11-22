@@ -30,6 +30,8 @@ class IdleState:
             monster1.move = 2
         elif monster1.move == 2 and monster1.y <= 720 - (128 * 10 - 64):
             monster1.move = 3
+        elif monster1.move == 3 and monster1.x >= 128 * 18 - 64:
+            monster1.move = 4
 
         if monster1.move == 1:
             monster1.x += 1.5
@@ -37,6 +39,8 @@ class IdleState:
             monster1.y -= 1.5
         elif monster1.move == 3:
             monster1.x += 1.5
+        elif monster1.move == 4:
+            monster1.y += 1.5
 
         for game_object in game_world.all_objects():
             if str(game_object).find("shot_arrow") != -1: # shot_arrow와 충돌시
@@ -75,9 +79,6 @@ class Monster1:
 
     def update(self):
         self.cur_state.do(self)
-
-        if self.x > 1280 + 64:
-            game_world.remove_object(self)
 
     def draw(self):
         self.cur_state.draw(self)
