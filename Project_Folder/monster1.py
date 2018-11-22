@@ -26,9 +26,9 @@ class IdleState:
 
     @staticmethod
     def do(monster1):
-        if monster1.move == 1 and monster1.x >= 576:
+        if monster1.move == 1 and monster1.x >= 128 * 6 - 64:
             monster1.move = 2
-        elif monster1.move == 2 and monster1.y <= 720 - 576:
+        elif monster1.move == 2 and monster1.y <= 720 - (128 * 10 - 64):
             monster1.move = 3
 
         if monster1.move == 1:
