@@ -32,6 +32,10 @@ class IdleState:
             monster1.move = 3
         elif monster1.move == 3 and monster1.x >= 128 * 18 - 64:
             monster1.move = 4
+        elif monster1.move == 4 and monster1.y >= 720 - (128 * 7 - 64):
+            monster1.move = 5
+        elif monster1.move == 5 and monster1.x <= 128 * 12 - 64:
+            monster1.move = 6
 
         if monster1.move == 1:
             monster1.x += 1.5
@@ -40,6 +44,10 @@ class IdleState:
         elif monster1.move == 3:
             monster1.x += 1.5
         elif monster1.move == 4:
+            monster1.y += 1.5
+        elif monster1.move == 5:
+            monster1.x -= 1.5
+        elif monster1.move == 6:
             monster1.y += 1.5
 
         for game_object in game_world.all_objects():
