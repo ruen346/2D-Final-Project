@@ -141,7 +141,7 @@ def update():
 
     if get_time() - (time + 2) >= 2:
         monster1 = Monster1()
-        game_world.add_object(monster1, 1)
+        game_world.add_object(monster1, 0)
         time += 2
 
 def draw():
