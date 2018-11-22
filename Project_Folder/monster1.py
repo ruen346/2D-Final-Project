@@ -54,6 +54,9 @@ class IdleState:
             game_world.remove_object(monster1)
             main_state.ui.money += 10
 
+        if monster1.y > 720 + 64: #나가면 사라짐
+            game_world.remove_object(monster1)
+
     @staticmethod
     def draw(monster1):
         monster1.image.draw(monster1.x + main_state.elf_move_window_x, monster1.y + main_state.elf_move_window_y)
