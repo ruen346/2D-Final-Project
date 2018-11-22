@@ -68,6 +68,7 @@ class IdleState:
 
         if monster1.y > 720 + 64: #나가면 사라짐
             game_world.remove_object(monster1)
+            main_state.ui.life -= 1
 
     @staticmethod
     def draw(monster1):

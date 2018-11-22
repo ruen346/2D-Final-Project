@@ -73,7 +73,7 @@ def enter():
 
     game_world.add_object(tile, 0)
     game_world.add_object(elf, 1)
-    game_world.add_object(monster1, 1)
+    game_world.add_object(monster1, 0)
 
 
 def exit():
