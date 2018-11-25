@@ -8,6 +8,7 @@ import game_world
 
 from elf import Elf
 from tile import Tile
+from tile_under import Tile_under
 from monster1 import Monster1
 from arrow_tower import Arrow_tower
 
@@ -81,16 +82,18 @@ class Ui:
 
 
 def enter():
-    global ui, elf, monster1, tile, time
+    global ui, elf, monster1, tile, tile_under, time
 
     ui = Ui()
     elf = Elf()
     tile = Tile()
+    tile_under = Tile_under()
     monster1 = Monster1()
     time = get_time()
 
-    game_world.add_object(tile, 0)
-    game_world.add_object(elf, 1)
+    game_world.add_object(tile_under, 0)
+    game_world.add_object(tile, 1)
+    game_world.add_object(elf, 2)
     game_world.add_object(monster1, 0)
 
 
@@ -140,7 +143,7 @@ def handle_events():
                 if(ui.cho_tower == 1): #타워1설치
                     i = int((mouse_x - elf_move_window_x - 64) / 128) + (int((720-(mouse_y - elf_move_window_y) + 64) / 128) * 20)
                     arrow_tower = Arrow_tower(i)
-                    game_world.add_object(arrow_tower, 1)
+                    game_world.add_object(arrow_tower, 2)
                     tile.time[i] = int(get_time())
                     ui.money -= 20 # 돈차감
             ui.left_click = 0

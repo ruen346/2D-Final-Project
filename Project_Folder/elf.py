@@ -165,5 +165,5 @@ class Elf:
                 elif self.look_vector == 3:
                     elf_arrow = Elf_arrow(self.x, self.y, 10, 0)
 
-                game_world.add_object(elf_arrow, 1)
+                game_world.add_object(elf_arrow, 2)
                 self.time = get_time()
