@@ -75,8 +75,9 @@ class Ui:
         self.gold_sp.draw(52, 584)
         self.num_sp[self.life // 10].draw(108, 664)
         self.num_sp[self.life % 10].draw(140, 664)
-        self.num_sp[self.money // 10].draw(108, 664)
-        self.num_sp[self.money % 10].draw(140, 580)
+        self.num_sp[self.money // 100].draw(108, 580)
+        self.num_sp[(self.money - self.money // 100 * 100) // 10].draw(140, 580)
+        self.num_sp[self.money % 10].draw(172, 580)
 
 
 def enter():
