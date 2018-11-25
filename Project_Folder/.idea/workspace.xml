@@ -118,7 +118,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="484" />
+          <entry key="Python" value="525" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -129,7 +129,7 @@
       <usages-collector id="statistics.vcs.git.usages" />
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="484" />
+          <entry key="py" value="525" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -187,8 +187,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/arrow_tower.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="20" column="94" selection-start-line="20" selection-start-column="94" selection-end-line="20" selection-end-column="94" />
+            <state relative-caret-position="418">
+              <caret line="22" column="60" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -265,8 +265,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/monster1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="59" column="86" selection-start-line="59" selection-start-column="86" selection-end-line="59" selection-end-column="86" />
+            <state relative-caret-position="342">
+              <caret line="39" column="24" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="24" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -485,13 +485,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mygame.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tile.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -509,6 +502,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/elf_arrow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="79" lean-forward="true" selection-start-line="9" selection-start-column="79" selection-end-line="9" selection-end-column="79" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/monster1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="39" column="24" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main_state.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="716">
@@ -519,23 +532,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/monster1.py">
+    <entry file="file://$PROJECT_DIR$/mygame.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="59" column="86" selection-start-line="59" selection-start-column="86" selection-end-line="59" selection-end-column="86" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/elf_arrow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="79" lean-forward="true" selection-start-line="9" selection-start-column="79" selection-end-line="9" selection-end-column="79" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="76">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -551,8 +551,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/arrow_tower.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="94" selection-start-line="20" selection-start-column="94" selection-end-line="20" selection-end-column="94" />
+        <state relative-caret-position="418">
+          <caret line="22" column="60" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>

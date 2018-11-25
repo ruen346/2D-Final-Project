@@ -15,13 +15,13 @@ class Arrow_tower:
     def update(self):
         front_monster_x = 0  # 맨앞 몬스터 좌표
         front_monster_y = 720  # 맨앞 몬스터 좌표
+        front_monster_move = 0 # 맨앞 몬스터 어디경로 이동
         for game_object in game_world.all_objects(): #맨앞 몬스터 위치
             if str(game_object).find("monster1") != -1:
                 if math.sqrt((game_object.x - self.x)**2 + (game_object.y - self.y)**2) < 450:
                     print(math.sqrt((game_object.x - self.x)**2 + (game_object.y - self.y)**2))
-                    if front_monster_x < game_object.x:
+                    if game_object.move > front_monster_move:
                         front_monster_x = game_object.x
-                    if front_monster_y > game_object.y:
                         front_monster_y = game_object.y
 
         if get_time() >= self.time + 0.5: #화살발사
