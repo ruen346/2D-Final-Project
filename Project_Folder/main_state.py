@@ -36,9 +36,20 @@ class Ui:
         self.arrow_tower_range = load_image('image\\arrow_tower_range.png')
         self.gold_sp = load_image('image\\gold.png')
         self.life_sp = load_image('image\\life.png')
+        self.num_sp = [None, None, None, None, None, None, None, None, None, None,]
+        self.num_sp[0] = load_image('image\\0.png')
+        self.num_sp[1] = load_image('image\\1.png')
+        self.num_sp[2] = load_image('image\\2.png')
+        self.num_sp[3] = load_image('image\\3.png')
+        self.num_sp[4] = load_image('image\\4.png')
+        self.num_sp[5] = load_image('image\\5.png')
+        self.num_sp[6] = load_image('image\\6.png')
+        self.num_sp[7] = load_image('image\\7.png')
+        self.num_sp[8] = load_image('image\\8.png')
+        self.num_sp[9] = load_image('image\\9.png')
         self.font = load_font('ENCR10B.TTF', 16)
         self.money = 100
-        self.life = 10
+        self.life = 20
 
         self.left_click = 0 #왼쪽 마우스 누르면 1
         self.cho_tower = 0 #0이면 선택안됨, 어떤 타워 아이콘 눌렀는지
@@ -62,8 +73,10 @@ class Ui:
 
         self.life_sp.draw(52, 668)
         self.gold_sp.draw(52, 584)
-        self.font.draw(1200, 50, str(self.money) + 'G', (0, 0, 0))
-        self.font.draw(1200, 80, str(self.life) + 'Life', (0, 0, 0))
+        self.num_sp[self.life // 10].draw(108, 664)
+        self.num_sp[self.life % 10].draw(140, 664)
+        self.num_sp[self.money // 10].draw(108, 664)
+        self.num_sp[self.money % 10].draw(140, 580)
 
 
 def enter():
