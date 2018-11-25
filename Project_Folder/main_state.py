@@ -111,8 +111,8 @@ def handle_events():
 
             if tile.in_tower[int((mouse_x - elf_move_window_x - 64) / 128) + (int((720-(mouse_y - elf_move_window_y) + 64) / 128) * 20)] == 1:
                 ui.cho_build_tower = 1
-                ui.cho_build_x = int((mouse_x - 64) / 128) * 128 + 128
-                ui.cho_build_y = int((mouse_y + 128) / 128) * 128 - 64
+                ui.cho_build_x = int((mouse_x - elf_move_window_x - 64) / 128) * 128 + 128
+                ui.cho_build_y = int((mouse_y - elf_move_window_y + 128) / 128) * 128 - 64
             else:
                 ui.cho_build_tower = 0
 
