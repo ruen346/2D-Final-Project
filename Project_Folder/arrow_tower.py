@@ -1,6 +1,7 @@
 from pico2d import *
 import game_world
 import main_state
+import math
 from shot_arrow import Shot_arrow
 
 
@@ -16,10 +17,12 @@ class Arrow_tower:
         front_monster_y = 720  # 맨앞 몬스터 좌표
         for game_object in game_world.all_objects(): #맨앞 몬스터 위치
             if str(game_object).find("monster1") != -1:
-                if front_monster_x < game_object.x:
-                    front_monster_x = game_object.x + 32
-                if front_monster_y > game_object.y:
-                    front_monster_y = game_object.y - 32
+                if math.sqrt((game_object.x - self.x)**2 + (game_object.y - self.y)**2) < 450:
+                    print(math.sqrt((game_object.x - self.x)**2 + (game_object.y - self.y)**2))
+                    if front_monster_x < game_object.x:
+                        front_monster_x = game_object.x
+                    if front_monster_y > game_object.y:
+                        front_monster_y = game_object.y
 
         if get_time() >= self.time + 0.5: #화살발사
             if front_monster_y != 720: #없으면 화살 발사 x
