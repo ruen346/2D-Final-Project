@@ -136,7 +136,7 @@ class Elf:
     def update(self):
         if self.y < 360:
             main_state.elf_move_window_y = 360 - self.y
-        if self.x > 640:
+        if self.x > 640 and self.x < 1920:
                 main_state.elf_move_window_x = 640 - self.x
 
         self.cur_state.do(self)
