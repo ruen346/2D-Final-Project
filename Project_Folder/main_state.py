@@ -34,6 +34,8 @@ class Ui:
         self.arrow_tower_icon = load_image('image\\tower1_icon.png')
         self.arrow_tower_click = load_image('image\\tower1_click.png')
         self.arrow_tower_range = load_image('image\\arrow_tower_range.png')
+        self.gold_sp = load_image('image\\gold.png')
+        self.life_sp = load_image('image\\life.png')
         self.font = load_font('ENCR10B.TTF', 16)
         self.money = 100
         self.life = 10
@@ -58,6 +60,8 @@ class Ui:
         if self.cho_build_tower == 1:
             self.arrow_tower_range.draw(self.cho_build_x + elf_move_window_x,self.cho_build_y + elf_move_window_y)
 
+        self.life_sp.draw(52, 668)
+        self.gold_sp.draw(52, 584)
         self.font.draw(1200, 50, str(self.money) + 'G', (0, 0, 0))
         self.font.draw(1200, 80, str(self.life) + 'Life', (0, 0, 0))
 
