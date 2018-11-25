@@ -121,9 +121,8 @@ def handle_events():
         ############################################################################# 마우스 좌클릭
         elif event.type == SDL_MOUSEBUTTONDOWN:
             ui.left_click = 1
-            if mouse_x >= 1280 - 128 and mouse_x <= 1280:
-                if mouse_y >= 720 - 128 and mouse_y <= 720:
-                    ui.cho_tower = 1
+            if mouse_x >= 1280 - 128 and mouse_x <= 1280 and mouse_y >= 720 - 128 and mouse_y <= 720 and ui.money >= 20:
+                ui.cho_tower = 1
             else:
                 ui.cho_tower = 0
 
@@ -140,9 +139,10 @@ def handle_events():
                 tile.in_tower[int((mouse_x - elf_move_window_x - 64) / 128) + (int((720-(mouse_y - elf_move_window_y) + 64) / 128) * 20)] = ui.cho_tower
                 if(ui.cho_tower == 1): #타워1설치
                     i = int((mouse_x - elf_move_window_x - 64) / 128) + (int((720-(mouse_y - elf_move_window_y) + 64) / 128) * 20)
-                    arrow_tower = Arrow_tower(i) #(i % 20) * 128 + 128 + main_state.elf_move_window_x, 720 - (i // 20) * 128 + main_state.elf_move_window_y
+                    arrow_tower = Arrow_tower(i)
                     game_world.add_object(arrow_tower, 1)
                     tile.time[i] = int(get_time())
+                    ui.money -= 20 # 돈차감
             ui.left_click = 0
             ui.cho_tower = 0
 
