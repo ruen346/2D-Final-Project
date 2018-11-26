@@ -62,11 +62,11 @@ class IdleState:
                     monster1.hp -= 40
                     break
 
-        if monster1.hp <= 0:
+        if monster1.hp <= 0: #피가 0되서 죽음
             game_world.remove_object(monster1)
             main_state.ui.money += 10
 
-        if monster1.y > 720 + 64: #나가면 사라짐
+        if monster1.y > 720 + 64: #경로에 나가서 사라짐
             game_world.remove_object(monster1)
             main_state.ui.life -= 1
 

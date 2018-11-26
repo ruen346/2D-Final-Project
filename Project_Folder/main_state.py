@@ -174,7 +174,7 @@ def update():
     for game_object in game_world.all_objects():
         game_object.update()
     ui.update()
-    
+
 
     if get_time() - time >= 10 and stage == 0:
         stage = 1
