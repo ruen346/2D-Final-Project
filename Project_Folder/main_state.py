@@ -18,9 +18,10 @@ mouse_y = 0
 elf_move_window_x = 0
 elf_move_window_y = 0
 
-game_round = 1 #현재 라운드
+stage = 0 #현재 라운드
 
-time = 0
+time = get_time()
+stage_time = -5
 
 name = "MainState"
 
@@ -32,6 +33,8 @@ tile = None
 class Ui:
     global mouse_x
     global mouse_y
+    global stage
+    global stage_time
 
     def __init__(self):
         self.arrow_tower_icon = load_image('image\\tower1_icon.png')
@@ -50,6 +53,14 @@ class Ui:
         self.num_sp[7] = load_image('image\\7.png')
         self.num_sp[8] = load_image('image\\8.png')
         self.num_sp[9] = load_image('image\\9.png')
+        self.stage_sp = [None, None, None, None, None, None, None]
+        self.stage_sp[0] = load_image('image\\stage1.png')
+        self.stage_sp[1] = load_image('image\\stage2.png')
+        self.stage_sp[2] = load_image('image\\stage3.png')
+        self.stage_sp[3] = load_image('image\\stage4.png')
+        self.stage_sp[4] = load_image('image\\stage5.png')
+        self.stage_sp[5] = load_image('image\\stage6.png')
+        self.stage_sp[6] = load_image('image\\stage7.png')
         self.font = load_font('ENCR10B.TTF', 16)
         self.money = 100
         self.life = 20
@@ -82,21 +93,22 @@ class Ui:
         self.num_sp[(self.money - self.money // 100 * 100) // 10].draw(140, 580)
         self.num_sp[self.money % 10].draw(172, 580)
 
+        if get_time() - stage_time < 5:
+            self.stage_sp[stage - 1].draw(640,360)
+
 
 def enter():
-    global ui, elf, monster1, tile, tile_under, time
+    global ui, elf, tile, tile_under, time
 
     ui = Ui()
     elf = Elf()
     tile = Tile()
     tile_under = Tile_under()
-    monster1 = Monster1()
     time = get_time()
 
     game_world.add_object(tile_under, 0)
     game_world.add_object(tile, 1)
     game_world.add_object(elf, 2)
-    game_world.add_object(monster1, 0)
 
 
 def exit():
@@ -156,16 +168,23 @@ def handle_events():
 
 
 def update():
-    global time, monster1
+    global time, monster1, stage_time, stage
 
     for game_object in game_world.all_objects():
         game_object.update()
     ui.update()
 
+    """
     if get_time() - (time + 2) >= 2:
         monster1 = Monster1()
         game_world.add_object(monster1, 0)
         time += 2
+    """
+
+    if get_time() - time >= 10 and stage == 0:
+        stage = 1
+        stage_time = get_time()
+
 
 def draw():
     clear_canvas()
