@@ -174,13 +174,7 @@ def update():
     for game_object in game_world.all_objects():
         game_object.update()
     ui.update()
-
-    """
-    if get_time() - (time + 2) >= 2:
-        monster1 = Monster1()
-        game_world.add_object(monster1, 0)
-        time += 2
-    """
+    
 
     if get_time() - time >= 10 and stage == 0:
         stage = 1
