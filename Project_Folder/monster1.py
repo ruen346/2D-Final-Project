@@ -52,12 +52,12 @@ class IdleState:
 
         for game_object in game_world.all_objects():
             if str(game_object).find("shot_arrow") != -1: # shot_arrow와 충돌시
-                if game_object.x > monster1.x - 64 and game_object.x < monster1.x + 64 and game_object.y < monster1.y + 64 and  game_object.y > monster1.y - 46:
+                if game_object.x > monster1.x - 64 and game_object.x < monster1.x + 64 and game_object.y < monster1.y + 64 and  game_object.y > monster1.y - 64:
                     game_world.remove_object(game_object)
                     monster1.hp -= 40
                     break
             elif str(game_object).find("elf_arrow") != -1: # elf_arrow와 충돌시
-                if game_object.x > monster1.x - 64 and game_object.x < monster1.x + 64 and game_object.y < monster1.y + 32 and  game_object.y > monster1.y - 46:
+                if game_object.x > monster1.x - 64 and game_object.x < monster1.x + 64 and game_object.y < monster1.y + 64 and  game_object.y > monster1.y - 64:
                     game_world.remove_object(game_object)
                     monster1.hp -= 40
                     break
