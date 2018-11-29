@@ -37,45 +37,45 @@ class IdleState:
         elif monster2.move == 5 and monster2.x <= 128 * 12 - 64:
             monster2.move = 6
 
-        if monster1.move == 1:
-            monster1.x += 1.5
-        elif monster1.move == 2:
-            monster1.y -= 1.5
-        elif monster1.move == 3:
-            monster1.x += 1.5
-        elif monster1.move == 4:
-            monster1.y += 1.5
-        elif monster1.move == 5:
-            monster1.x -= 1.5
-        elif monster1.move == 6:
-            monster1.y += 1.5
+        if monster2.move == 1:
+            monster2.x += 1.5
+        elif monster2.move == 2:
+            monster2.y -= 1.5
+        elif monster2.move == 3:
+            monster2.x += 1.5
+        elif monster2.move == 4:
+            monster2.y += 1.5
+        elif monster2.move == 5:
+            monster2.x -= 1.5
+        elif monster2.move == 6:
+            monster2.y += 1.5
 
         for game_object in game_world.all_objects():
             if str(game_object).find("shot_arrow") != -1: # shot_arrow와 충돌시
-                if game_object.x > monster1.x - 64 and game_object.x < monster1.x + 64 and game_object.y < monster1.y + 64 and  game_object.y > monster1.y - 64:
+                if game_object.x > monster2.x - 64 and game_object.x < monster2.x + 64 and game_object.y < monster2.y + 64 and  game_object.y > monster2.y - 64:
                     game_world.remove_object(game_object)
                     monster1.hp -= 40
                     break
             elif str(game_object).find("elf_arrow") != -1: # elf_arrow와 충돌시
-                if game_object.x > monster1.x - 64 and game_object.x < monster1.x + 64 and game_object.y < monster1.y + 64 and  game_object.y > monster1.y - 64:
+                if game_object.x > monster2.x - 64 and game_object.x < monster2.x + 64 and game_object.y < monster2.y + 64 and  game_object.y > monster2.y - 64:
                     game_world.remove_object(game_object)
-                    monster1.hp -= 40
+                    monster2.hp -= 40
                     break
 
-        if monster1.hp <= 0: #피가 0되서 죽음
-            game_world.remove_object(monster1)
+        if monster2.hp <= 0: #피가 0되서 죽음
+            game_world.remove_object(monster2)
             main_state.ui.money += 10
 
-        if monster1.y > 720 + 64: #경로에 나가서 사라짐
-            game_world.remove_object(monster1)
+        if monster2.y > 720 + 64: #경로에 나가서 사라짐
+            game_world.remove_object(monster2)
             main_state.ui.life -= 1
 
     @staticmethod
-    def draw(monster1):
-        monster1.image.draw(monster1.x + main_state.elf_move_window_x, monster1.y + main_state.elf_move_window_y)
+    def draw(monster2):
+        monster2.image.draw(monster2.x + main_state.elf_move_window_x, monster2.y + main_state.elf_move_window_y)
 
 
-class Monster1:
+class Monster2:
 
     def __init__(self):
         self.x, self.y = 0, 720-320
