@@ -17,65 +17,65 @@ FRAMES_PER_ACTION = 8
 class IdleState:
 
     @staticmethod
-    def enter(monster3, event):
-        monster3.timer = get_time()
+    def enter(monster4, event):
+        monster4.timer = get_time()
 
     @staticmethod
-    def exit(monster3, event):
+    def exit(monster4, event):
         pass
 
     @staticmethod
-    def do(monster3):
-        if monster3.move == 1 and monster3.x >= 128 * 6 - 64:
-            monster3.move = 2
-        elif monster3.move == 2 and monster3.y <= 720 - (128 * 10 - 64):
-            monster3.move = 3
-        elif monster3.move == 3 and monster3.x >= 128 * 18 - 64:
-            monster3.move = 4
-        elif monster3.move == 4 and monster3.y >= 720 - (128 * 7 - 64):
-            monster3.move = 5
-        elif monster3.move == 5 and monster3.x <= 128 * 12 - 64:
-            monster3.move = 6
+    def do(monster4):
+        if monster4.move == 1 and monster4.x >= 128 * 6 - 64:
+            monster4.move = 2
+        elif monster4.move == 2 and monster4.y <= 720 - (128 * 10 - 64):
+            monster4.move = 3
+        elif monster4.move == 3 and monster4.x >= 128 * 18 - 64:
+            monster4.move = 4
+        elif monster4.move == 4 and monster4.y >= 720 - (128 * 7 - 64):
+            monster4.move = 5
+        elif monster4.move == 5 and monster4.x <= 128 * 12 - 64:
+            monster4.move = 6
 
-        if monster3.move == 1:
-            monster3.x += 1.5
-        elif monster3.move == 2:
-            monster3.y -= 1.5
-        elif monster3.move == 3:
-            monster3.x += 1.5
-        elif monster3.move == 4:
-            monster3.y += 1.5
-        elif monster3.move == 5:
-            monster3.x -= 1.5
-        elif monster3.move == 6:
-            monster3.y += 1.5
+        if monster4.move == 1:
+            monster4.x += 1.5
+        elif monster4.move == 2:
+            monster4.y -= 1.5
+        elif monster4.move == 3:
+            monster4.x += 1.5
+        elif monster4.move == 4:
+            monster4.y += 1.5
+        elif monster4.move == 5:
+            monster4.x -= 1.5
+        elif monster4.move == 6:
+            monster4.y += 1.5
 
         for game_object in game_world.all_objects():
             if str(game_object).find("shot_arrow") != -1: # shot_arrow와 충돌시
-                if game_object.x > monster3.x - 64 and game_object.x < monster3.x + 64 and game_object.y < monster3.y + 64 and  game_object.y > monster3.y - 64:
+                if game_object.x > monster4.x - 64 and game_object.x < monster4.x + 64 and game_object.y < monster4.y + 64 and  game_object.y > monster4.y - 64:
                     game_world.remove_object(game_object)
-                    monster3.hp -= 40
+                    monster4.hp -= 40
                     break
             elif str(game_object).find("elf_arrow") != -1: # elf_arrow와 충돌시
-                if game_object.x > monster3.x - 64 and game_object.x < monster3.x + 64 and game_object.y < monster3.y + 64 and  game_object.y > monster3.y - 64:
+                if game_object.x > monster4.x - 64 and game_object.x < monster4.x + 64 and game_object.y < monster4.y + 64 and  game_object.y > monster4.y - 64:
                     game_world.remove_object(game_object)
-                    monster3.hp -= 40
+                    monster4.hp -= 40
                     break
 
-        if monster3.hp <= 0: #피가 0되서 죽음
-            game_world.remove_object(monster3)
+        if monster4.hp <= 0: #피가 0되서 죽음
+            game_world.remove_object(monster4)
             main_state.ui.money += 15
 
-        if monster3.y > 720 + 64: #경로에 나가서 사라짐
-            game_world.remove_object(monster3)
+        if monster4.y > 720 + 64: #경로에 나가서 사라짐
+            game_world.remove_object(monster4)
             main_state.ui.life -= 1
 
     @staticmethod
-    def draw(monster3):
-        monster3.image.draw(monster3.x + main_state.elf_move_window_x, monster3.y + main_state.elf_move_window_y)
+    def draw(monster4):
+        monster4.image.draw(monster4.x + main_state.elf_move_window_x, monster4.y + main_state.elf_move_window_y)
 
 
-class Monster3:
+class Monster4:
 
     def __init__(self):
         self.x, self.y = 0, 720-320
