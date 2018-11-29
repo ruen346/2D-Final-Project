@@ -17,25 +17,25 @@ FRAMES_PER_ACTION = 8
 class IdleState:
 
     @staticmethod
-    def enter(monster1, event):
-        monster1.timer = get_time()
+    def enter(monster2, event):
+        monster2.timer = get_time()
 
     @staticmethod
-    def exit(monster1, event):
+    def exit(monster2, event):
         pass
 
     @staticmethod
-    def do(monster1):
-        if monster1.move == 1 and monster1.x >= 128 * 6 - 64:
-            monster1.move = 2
-        elif monster1.move == 2 and monster1.y <= 720 - (128 * 10 - 64):
-            monster1.move = 3
-        elif monster1.move == 3 and monster1.x >= 128 * 18 - 64:
-            monster1.move = 4
-        elif monster1.move == 4 and monster1.y >= 720 - (128 * 7 - 64):
-            monster1.move = 5
-        elif monster1.move == 5 and monster1.x <= 128 * 12 - 64:
-            monster1.move = 6
+    def do(monster2):
+        if monster2.move == 1 and monster2.x >= 128 * 6 - 64:
+            monster2.move = 2
+        elif monster2.move == 2 and monster2.y <= 720 - (128 * 10 - 64):
+            monster2.move = 3
+        elif monster2.move == 3 and monster2.x >= 128 * 18 - 64:
+            monster2.move = 4
+        elif monster2.move == 4 and monster2.y >= 720 - (128 * 7 - 64):
+            monster2.move = 5
+        elif monster2.move == 5 and monster2.x <= 128 * 12 - 64:
+            monster2.move = 6
 
         if monster1.move == 1:
             monster1.x += 1.5
