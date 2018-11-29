@@ -54,7 +54,7 @@ class IdleState:
             if str(game_object).find("shot_arrow") != -1: # shot_arrow와 충돌시
                 if game_object.x > monster2.x - 64 and game_object.x < monster2.x + 64 and game_object.y < monster2.y + 64 and  game_object.y > monster2.y - 64:
                     game_world.remove_object(game_object)
-                    monster1.hp -= 40
+                    monster2.hp -= 40
                     break
             elif str(game_object).find("elf_arrow") != -1: # elf_arrow와 충돌시
                 if game_object.x > monster2.x - 64 and game_object.x < monster2.x + 64 and game_object.y < monster2.y + 64 and  game_object.y > monster2.y - 64:
@@ -64,7 +64,7 @@ class IdleState:
 
         if monster2.hp <= 0: #피가 0되서 죽음
             game_world.remove_object(monster2)
-            main_state.ui.money += 10
+            main_state.ui.money += 15
 
         if monster2.y > 720 + 64: #경로에 나가서 사라짐
             game_world.remove_object(monster2)
