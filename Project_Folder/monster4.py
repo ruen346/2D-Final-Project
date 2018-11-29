@@ -4,7 +4,7 @@ import game_world
 import main_state
 
 PIXEL_PER_METER = (10.0/0.3)
-RUN_SPEED_KMPH = 25.0
+RUN_SPEED_KMPH = 20.0
 RUN_SPEED_MPM = (RUN_SPEED_KMPH * 1000.0 / 60.0)
 RUN_SPEED_MPS = (RUN_SPEED_MPM / 60.0)
 RUN_SPEED_PPS = (RUN_SPEED_MPS * PIXEL_PER_METER)
@@ -81,7 +81,7 @@ class Monster3:
         self.x, self.y = 0, 720-320
         self.image = load_image('image\\monster1.png')
         self.move = 1
-        self.hp = 250
+        self.hp = 800
         self.event_que = []
         self.cur_state = IdleState
         self.cur_state.enter(self, None)
