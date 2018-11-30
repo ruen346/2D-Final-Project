@@ -79,7 +79,7 @@ class Monster4:
 
     def __init__(self):
         self.x, self.y = 0, 720-320
-        self.image = load_image('image\\monster1.png')
+        self.image = load_image('image\\monster4.png')
         self.move = 1
         self.hp = 800
         self.event_que = []
