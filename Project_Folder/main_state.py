@@ -176,7 +176,7 @@ def update():
     ui.update()
 
 
-    if get_time() - time >= 10 and stage == 0:
+    if get_time() - time >= 10 and stage == 0: #10초후 게임 시작
         stage = 1
         stage_time = get_time()
         stage1_time = get_time()
