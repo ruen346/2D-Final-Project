@@ -10,6 +10,11 @@ from elf import Elf
 from tile import Tile
 from tile_under import Tile_under
 from monster1 import Monster1
+from monster2 import Monster2
+from monster3 import Monster3
+from monster4 import Monster4
+from boss import Boss
+from teemo import Teemo
 from arrow_tower import Arrow_tower
 
 
@@ -177,7 +182,7 @@ def handle_events():
 
 
 def update():
-    global time, monster1, stage_time, stage1_time, stage, monster_num, monster_spawn
+    global time, monster1, monster2, monster3, monster4, boss, teemo, stage_time, stage1_time, stage, monster_num, monster_spawn
 
     for game_object in game_world.all_objects():
         game_object.update()
@@ -195,6 +200,21 @@ def update():
         if get_time() - stage1_time >= int(monster_spawn[monster_num + 1]):
             if int(monster_spawn[monster_num]) == 1:
                 monster1 = Monster1()
+                game_world.add_object(monster1, 0)
+            if int(monster_spawn[monster_num]) == 2:
+                monster2 = Monster2()
+                game_world.add_object(monster1, 0)
+            if int(monster_spawn[monster_num]) == 3:
+                monster3 = Monster3()
+                game_world.add_object(monster1, 0)
+            if int(monster_spawn[monster_num]) == 4:
+                monster4 = Monster4()
+                game_world.add_object(monster1, 0)
+            if int(monster_spawn[monster_num]) == 5:
+                boss = Boss()
+                game_world.add_object(monster1, 0)
+            if int(monster_spawn[monster_num]) == 6:
+                teemo = Teemo()
                 game_world.add_object(monster1, 0)
             monster_num += 2
 
