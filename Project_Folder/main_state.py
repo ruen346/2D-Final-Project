@@ -23,6 +23,7 @@ stage = 0 #현재 라운드
 time = get_time()
 stage_time = -5
 stage1_time = 0
+monster_num = 0
 
 name = "MainState"
 
@@ -169,7 +170,7 @@ def handle_events():
 
 
 def update():
-    global time, monster1, stage_time, stage1_time, stage
+    global time, monster1, stage_time, stage1_time, stage, monster_num
 
     for game_object in game_world.all_objects():
         game_object.update()
@@ -178,11 +179,12 @@ def update():
 
     if get_time() - time >= 10 and stage == 0: #10초후 게임 시작
         stage = 1
+        monster_num = 0
         stage_time = get_time()
         stage1_time = get_time()
 
     if stage == 1:
-        if get_time() - stage1_time >= 2:
+        if get_time() - stage1_time >= 3:
             monster1 = Monster1()
             game_world.add_object(monster1, 0)
             stage1_time += 2
