@@ -198,21 +198,26 @@ def update():
             if int(monster_spawn[monster_num]) == 1:
                 monster1 = Monster1()
                 game_world.add_object(monster1, 0)
-            if int(monster_spawn[monster_num]) == 2:
+            elif int(monster_spawn[monster_num]) == 2:
                 monster2 = Monster2()
                 game_world.add_object(monster2, 0)
-            if int(monster_spawn[monster_num]) == 3:
+            elif int(monster_spawn[monster_num]) == 3:
                 monster3 = Monster3()
                 game_world.add_object(monster3, 0)
-            if int(monster_spawn[monster_num]) == 4:
+            elif int(monster_spawn[monster_num]) == 4:
                 monster4 = Monster4()
                 game_world.add_object(monster4, 0)
-            if int(monster_spawn[monster_num]) == 5:
+            elif int(monster_spawn[monster_num]) == 5:
                 boss = Boss()
                 game_world.add_object(boss, 0)
-            if int(monster_spawn[monster_num]) == 6:
+            elif int(monster_spawn[monster_num]) == 6:
                 teemo = Teemo()
                 game_world.add_object(teemo, 0)
+
+            elif int(monster_spawn[monster_num]) == 9:
+                stage += 1
+                stage_time = get_time()
+
             monster_num += 2
 
 
