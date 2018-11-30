@@ -15,7 +15,7 @@ from arrow_tower import Arrow_tower
 
 f = open("map\\monster.txt", 'r')
 monster_txt = f.read()
-monster_spawn = monster_txt.split()
+monster_spawn = monster_txt.split() #종류,초
 
 
 
@@ -177,7 +177,7 @@ def handle_events():
 
 
 def update():
-    global time, monster1, stage_time, stage1_time, stage, monster_num
+    global time, monster1, stage_time, stage1_time, stage, monster_num, monster_spawn
 
     for game_object in game_world.all_objects():
         game_object.update()
@@ -191,11 +191,12 @@ def update():
         stage1_time = get_time()
 
     if stage == 1:
-        if get_time() - stage1_time >= 3 and monster_num == 0:
-            monster1 = Monster1()
-            game_world.add_object(monster1, 0)
-            monster_num += 1
-            stage1_time += 2
+        print(monster_spawn[monster_num + 1])
+        if get_time() - stage1_time >= int(monster_spawn[monster_num + 1]):
+            if int(monster_spawn[monster_num]) == 1:
+                monster1 = Monster1()
+                game_world.add_object(monster1, 0)
+            monster_num += 2
 
 
 def draw():
