@@ -39,9 +39,6 @@ monster_num = 0
 
 name = "MainState"
 
-elf = None
-monster1 = None
-tile = None
 
 
 class Ui:
@@ -203,19 +200,19 @@ def update():
                 game_world.add_object(monster1, 0)
             if int(monster_spawn[monster_num]) == 2:
                 monster2 = Monster2()
-                game_world.add_object(monster1, 0)
+                game_world.add_object(monster2, 0)
             if int(monster_spawn[monster_num]) == 3:
                 monster3 = Monster3()
-                game_world.add_object(monster1, 0)
+                game_world.add_object(monster3, 0)
             if int(monster_spawn[monster_num]) == 4:
                 monster4 = Monster4()
-                game_world.add_object(monster1, 0)
+                game_world.add_object(monster4, 0)
             if int(monster_spawn[monster_num]) == 5:
                 boss = Boss()
-                game_world.add_object(monster1, 0)
+                game_world.add_object(boss, 0)
             if int(monster_spawn[monster_num]) == 6:
                 teemo = Teemo()
-                game_world.add_object(monster1, 0)
+                game_world.add_object(teemo, 0)
             monster_num += 2
 
 
