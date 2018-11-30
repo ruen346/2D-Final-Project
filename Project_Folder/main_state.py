@@ -12,6 +12,13 @@ from tile_under import Tile_under
 from monster1 import Monster1
 from arrow_tower import Arrow_tower
 
+
+f = open("map\\monster.txt", 'r')
+monster_txt = f.read()
+monster_spawn = monster_txt.split()
+
+
+
 mouse_x = 0
 mouse_y = 0
 
@@ -184,9 +191,10 @@ def update():
         stage1_time = get_time()
 
     if stage == 1:
-        if get_time() - stage1_time >= 3:
+        if get_time() - stage1_time >= 3 and monster_num == 0:
             monster1 = Monster1()
             game_world.add_object(monster1, 0)
+            monster_num += 1
             stage1_time += 2
 
 
