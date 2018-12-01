@@ -5,11 +5,11 @@ import math
 from shot_arrow import Shot_arrow
 
 
-class Arrow_tower:
+class Magic_tower:
 
     def __init__(self, i):
         self.x, self.y = (i % 20) * 128 + 128, 720 - (i // 20) * 128
-        self.image = load_image('image\\tower1.png')
+        self.image = load_image('image\\tower2.png')
         self.time = get_time()
 
     def update(self):
