@@ -96,11 +96,19 @@ class Ui:
 
     def draw(self):
         self.arrow_tower_icon.draw(1280 - 64, 720 - 64)
+        self.magic_tower_icon.draw(1280 - 64, 720 - 64 - 128)
+        self.buff_tower_icon.draw(1280 - 64, 720 - 64 - 128 * 2)
 
         if self.left_click == 1:#좌클릭
             if self.cho_tower == 1:#타워1선택
                 self.arrow_tower_range.draw(mouse_x,mouse_y)
                 self.arrow_tower_click.draw(mouse_x, mouse_y)
+            elif self.cho_tower == 2:#타워2선택
+                self.magic_tower_range.draw(mouse_x,mouse_y)
+                self.magic_tower_click.draw(mouse_x, mouse_y)
+            elif self.cho_tower == 3:#타워3선택
+                self.buff_tower_range.draw(mouse_x,mouse_y)
+                self.buff_tower_click.draw(mouse_x, mouse_y)
 
         if self.cho_build_tower == 1:
             self.arrow_tower_range.draw(self.cho_build_x + elf_move_window_x,self.cho_build_y + elf_move_window_y)
