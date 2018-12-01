@@ -112,6 +112,10 @@ class Ui:
 
         if self.cho_build_tower == 1:
             self.arrow_tower_range.draw(self.cho_build_x + elf_move_window_x,self.cho_build_y + elf_move_window_y)
+        if self.cho_build_tower == 2:
+            self.magic_tower_range.draw(self.cho_build_x + elf_move_window_x,self.cho_build_y + elf_move_window_y)
+        if self.cho_build_tower == 3:
+            self.buff_tower_range.draw(self.cho_build_x + elf_move_window_x,self.cho_build_y + elf_move_window_y)
 
         self.life_sp.draw(52, 668)
         self.gold_sp.draw(52, 584)
@@ -168,11 +172,23 @@ def handle_events():
             ui.left_click = 1
             if mouse_x >= 1280 - 128 and mouse_x <= 1280 and mouse_y >= 720 - 128 and mouse_y <= 720 and ui.money >= 20:
                 ui.cho_tower = 1
+            elif mouse_x >= 1280 - 128 and mouse_x <= 1280 and mouse_y >= 720 - 128 * 2 and mouse_y <= 720 - 128 and ui.money >= 30:
+                ui.cho_tower = 2
+            elif mouse_x >= 1280 - 128 and mouse_x <= 1280 and mouse_y >= 720 - 128 * 3 and mouse_y <= 720 - 128 * 2 and ui.money >= 40:
+                ui.cho_tower = 3
             else:
                 ui.cho_tower = 0
 
             if tile.in_tower[int((mouse_x - elf_move_window_x - 64) / 128) + (int((720-(mouse_y - elf_move_window_y) + 64) / 128) * 20)] == 1:
                 ui.cho_build_tower = 1
+                ui.cho_build_x = int((mouse_x - elf_move_window_x - 64) / 128) * 128 + 128
+                ui.cho_build_y = int((mouse_y - elf_move_window_y + 128) / 128) * 128 - 64
+            elif tile.in_tower[int((mouse_x - elf_move_window_x - 64) / 128) + (int((720-(mouse_y - elf_move_window_y) + 64) / 128) * 20)] == 2:
+                ui.cho_build_tower = 2
+                ui.cho_build_x = int((mouse_x - elf_move_window_x - 64) / 128) * 128 + 128
+                ui.cho_build_y = int((mouse_y - elf_move_window_y + 128) / 128) * 128 - 64
+            elif tile.in_tower[int((mouse_x - elf_move_window_x - 64) / 128) + (int((720-(mouse_y - elf_move_window_y) + 64) / 128) * 20)] == 3:
+                ui.cho_build_tower = 3
                 ui.cho_build_x = int((mouse_x - elf_move_window_x - 64) / 128) * 128 + 128
                 ui.cho_build_y = int((mouse_y - elf_move_window_y + 128) / 128) * 128 - 64
             else:
