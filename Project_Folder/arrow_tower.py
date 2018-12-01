@@ -17,7 +17,7 @@ class Arrow_tower:
         front_monster_y = 720  # 맨앞 몬스터 좌표
         front_monster_move = 0 # 맨앞 몬스터 어디경로 이동
         for game_object in game_world.all_objects(): #맨앞 몬스터 위치
-            if str(game_object).find("monster1") != -1:
+            if str(game_object).find("monster1") != -1 or str(game_object).find("monster2") != -1 or str(game_object).find("monster3") != -1 or str(game_object).find("monster4") != -1 or str(game_object).find("boss") != -1 or str(game_object).find("teemo") != -1:
                 if math.sqrt((game_object.x - self.x)**2 + (game_object.y - self.y)**2) < 450:
                     if game_object.move > front_monster_move:
                         front_monster_x = game_object.x
