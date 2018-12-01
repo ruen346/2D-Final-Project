@@ -193,7 +193,6 @@ def update():
         stage1_time = get_time()
 
     if stage >= 1:
-        print(monster_spawn[monster_num + 1])
         if get_time() - stage1_time >= int(monster_spawn[monster_num + 1]):
             if int(monster_spawn[monster_num]) == 1:
                 monster1 = Monster1()
