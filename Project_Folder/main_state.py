@@ -53,6 +53,13 @@ class Ui:
         self.arrow_tower_icon = load_image('image\\tower1_icon.png')
         self.arrow_tower_click = load_image('image\\tower1_click.png')
         self.arrow_tower_range = load_image('image\\arrow_tower_range.png')
+        self.magic_tower_icon = load_image('image\\tower2_icon.png')
+        self.magic_tower_click = load_image('image\\tower2_click.png')
+        self.magic_tower_range = load_image('image\\arrow_tower_range.png')
+        self.buff_tower_icon = load_image('image\\tower3_icon.png')
+        self.buff_tower_click = load_image('image\\tower3_click.png')
+        self.buff_tower_range = load_image('image\\arrow_tower_range.png')
+
         self.gold_sp = load_image('image\\gold.png')
         self.life_sp = load_image('image\\life.png')
         self.num_sp = [None, None, None, None, None, None, None, None, None, None,]
