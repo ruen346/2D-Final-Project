@@ -16,6 +16,8 @@ from monster4 import Monster4
 from boss import Boss
 from teemo import Teemo
 from arrow_tower import Arrow_tower
+from magic_tower import Magic_tower
+from buff_tower import Buff_tower
 
 
 f = open("map\\monster.txt", 'r')
