@@ -25,6 +25,7 @@ monster_txt = f.read()
 monster_spawn = monster_txt.split() #종류,초
 
 
+elf_upgrade = 0
 elf_d = 40
 tower1_d = 40
 tower2_d = 20
@@ -65,6 +66,8 @@ class Ui:
         self.buff_tower_click = load_image('image\\tower3_click.png')
         self.buff_tower_range = load_image('image\\buff_tower_range.png')
 
+        self.elf_icon = load_image('image\\elf_icon.png')
+
         self.gold_sp = load_image('image\\gold.png')
         self.life_sp = load_image('image\\life.png')
         self.num_sp = [None, None, None, None, None, None, None, None, None, None,]
@@ -103,6 +106,7 @@ class Ui:
         self.arrow_tower_icon.draw(1280 - 64, 720 - 64)
         self.magic_tower_icon.draw(1280 - 64, 720 - 64 - 128)
         self.buff_tower_icon.draw(1280 - 64, 720 - 64 - 128 * 2)
+        self.elf_icon.draw(1280 - 64, 64)
 
         if self.left_click == 1:#좌클릭
             if self.cho_tower == 1:#타워1선택
@@ -161,6 +165,7 @@ def resume():
 def handle_events():
     global mouse_x
     global mouse_y
+    global elf_upgrade
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
@@ -181,6 +186,12 @@ def handle_events():
                 ui.cho_tower = 2
             elif mouse_x >= 1280 - 128 and mouse_x <= 1280 and mouse_y >= 720 - 128 * 3 and mouse_y <= 720 - 128 * 2 and ui.money >= 40:
                 ui.cho_tower = 3
+            elif mouse_x >= 1280 - 128 and mouse_x <= 1280 and mouse_y >= 0 and mouse_y <= 128 and elf_upgrade == 0 and ui.money >= 100:
+                ui.money -= 100
+                elf_upgrade = 1
+            elif mouse_x >= 1280 - 128 and mouse_x <= 1280 and mouse_y >= 0 and mouse_y <= 128 and elf_upgrade == 1 and ui.money >= 250:
+                ui.money -= 250
+                elf_upgrade = 2
             else:
                 ui.cho_tower = 0
 
