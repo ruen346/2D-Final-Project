@@ -65,6 +65,18 @@ class IdleState:
                 if math.sqrt((game_object.x - teemo.x)**2 + (game_object.y - teemo.y)**2) < 250 and get_time() >= teemo.time + 0.1:
                     teemo.hp -= 20
                     break
+            elif str(game_object).find("boom") != -1: # boom와 충돌시
+                if game_object.x > teemo.x - 64 and game_object.x < teemo.x + 64 and game_object.y < teemo.y + 64 and  game_object.y > teemo.y - 64:
+                    game_world.remove_object(game_object)
+                    from fire import Fire
+                    fire = Fire(teemo.x, teemo.y)
+                    game_world.add_object(fire, 2)
+                    break
+            elif str(game_object).find("fire") != -1: # fire와 충돌시
+                if math.sqrt((game_object.x - teemo.x)**2 + (game_object.y - teemo.y)**2) < 100 and get_time() >= teemo.time + 0.1:
+                    game_world.remove_object(game_object)
+                    teemo.hp -= 30
+                    break
 
         if get_time() >= teemo.time + 0.1: #다단히트 스킬땜시
             teemo.time = get_time()
