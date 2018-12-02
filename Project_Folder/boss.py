@@ -71,7 +71,7 @@ class IdleState:
 
         if boss.hp <= 0: #피가 0되서 죽음
             game_world.remove_object(boss)
-            main_state.ui.money += 15
+            main_state.ui.money += 100
 
         if boss.y > 720 + 64: #경로에 나가서 사라짐
             game_world.remove_object(boss)
