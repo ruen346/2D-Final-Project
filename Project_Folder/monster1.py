@@ -61,6 +61,13 @@ class IdleState:
                     game_world.remove_object(game_object)
                     monster1.hp -= 40
                     break
+            elif str(game_object).find("magic") != -1: # magic와 충돌시
+                if game_object.x > monster1.x - 64 and game_object.x < monster1.x + 64 and game_object.y < monster1.y + 64 and  game_object.y > monster1.y - 64 and get_time() >= monster1.time + 0.1:
+                    monster1.hp -= 10
+                    break
+
+        if get_time() >= monster1.time + 0.1: #다단히트 스킬땜시
+            monster1.time = get_time()
 
         if monster1.hp <= 0: #피가 0되서 죽음
             game_world.remove_object(monster1)
@@ -85,6 +92,7 @@ class Monster1:
         self.event_que = []
         self.cur_state = IdleState
         self.cur_state.enter(self, None)
+        self.time = get_time()
 
     def update(self):
         self.cur_state.do(self)
