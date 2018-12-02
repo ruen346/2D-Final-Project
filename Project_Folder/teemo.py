@@ -54,16 +54,16 @@ class IdleState:
             if str(game_object).find("shot_arrow") != -1: # shot_arrow와 충돌시
                 if game_object.x > teemo.x - 64 and game_object.x < teemo.x + 64 and game_object.y < teemo.y + 64 and  game_object.y > teemo.y - 64:
                     game_world.remove_object(game_object)
-                    teemo.hp -= 40
+                    teemo.hp -= main_state.tower1_d
                     break
             elif str(game_object).find("elf_arrow") != -1: # elf_arrow와 충돌시
                 if game_object.x > teemo.x - 64 and game_object.x < teemo.x + 64 and game_object.y < teemo.y + 64 and  game_object.y > teemo.y - 64:
                     game_world.remove_object(game_object)
-                    teemo.hp -= 40
+                    teemo.hp -= main_state.elf_d
                     break
             elif str(game_object).find("magic") != -1: # magic와 충돌시
                 if math.sqrt((game_object.x - teemo.x)**2 + (game_object.y - teemo.y)**2) < 250 and get_time() >= teemo.time + 0.1:
-                    teemo.hp -= 20
+                    teemo.hp -= main_state.tower2_d
                     break
             elif str(game_object).find("boom") != -1: # boom와 충돌시
                 if game_object.x > teemo.x - 64 and game_object.x < teemo.x + 64 and game_object.y < teemo.y + 64 and  game_object.y > teemo.y - 64:
@@ -75,7 +75,7 @@ class IdleState:
             elif str(game_object).find("fire") != -1: # fire와 충돌시
                 if math.sqrt((game_object.x - teemo.x)**2 + (game_object.y - teemo.y)**2) < 100 and get_time() >= teemo.time + 0.1:
                     game_world.remove_object(game_object)
-                    teemo.hp -= 30
+                    teemo.hp -= main_state.tower3_d
                     break
 
         if get_time() >= teemo.time + 0.1: #다단히트 스킬땜시

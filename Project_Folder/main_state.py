@@ -25,6 +25,11 @@ monster_txt = f.read()
 monster_spawn = monster_txt.split() #종류,초
 
 
+elf_d = 40
+tower1_d = 40
+tower2_d = 20
+tower3_d = 30
+
 
 mouse_x = 0
 mouse_y = 0

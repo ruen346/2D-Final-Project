@@ -54,16 +54,16 @@ class IdleState:
             if str(game_object).find("shot_arrow") != -1: # shot_arrow와 충돌시
                 if game_object.x > boss.x - 64 and game_object.x < boss.x + 64 and game_object.y < boss.y + 64 and  game_object.y > boss.y - 64:
                     game_world.remove_object(game_object)
-                    boss.hp -= 40
+                    boss.hp -= main_state.tower1_d
                     break
             elif str(game_object).find("elf_arrow") != -1: # elf_arrow와 충돌시
                 if game_object.x > boss.x - 64 and game_object.x < boss.x + 64 and game_object.y < boss.y + 64 and  game_object.y > boss.y - 64:
                     game_world.remove_object(game_object)
-                    boss.hp -= 40
+                    boss.hp -= main_state.elf_d
                     break
             elif str(game_object).find("magic") != -1: # magic와 충돌시
                 if math.sqrt((game_object.x - boss.x)**2 + (game_object.y - boss.y)**2) < 250 and get_time() >= boss.time + 0.1:
-                    boss.hp -= 20
+                    boss.hp -= main_state.tower2_d
                     break
             elif str(game_object).find("boom") != -1: # boom와 충돌시
                 if game_object.x > boss.x - 64 and game_object.x < boss.x + 64 and game_object.y < boss.y + 64 and  game_object.y > boss.y - 64:
@@ -75,7 +75,7 @@ class IdleState:
             elif str(game_object).find("fire") != -1: # fire와 충돌시
                 if math.sqrt((game_object.x - boss.x)**2 + (game_object.y - boss.y)**2) < 100 and get_time() >= boss.time + 0.1:
                     game_world.remove_object(game_object)
-                    boss.hp -= 30
+                    boss.hp -= main_state.tower3_d
                     break
 
         if get_time() >= boss.time + 0.1: #다단히트 스킬땜시
