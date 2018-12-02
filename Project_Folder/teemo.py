@@ -61,6 +61,13 @@ class IdleState:
                     game_world.remove_object(game_object)
                     teemo.hp -= 40
                     break
+            elif str(game_object).find("magic") != -1: # magic와 충돌시
+                if math.sqrt((game_object.x - teemo.x)**2 + (game_object.y - teemo.y)**2) < 250 and get_time() >= teemo.time + 0.1:
+                    teemo.hp -= 20
+                    break
+
+        if get_time() >= teemo.time + 0.1: #다단히트 스킬땜시
+            teemo.time = get_time()
 
         if teemo.hp <= 0: #피가 0되서 죽음
             game_world.remove_object(teemo)

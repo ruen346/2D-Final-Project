@@ -61,6 +61,13 @@ class IdleState:
                     game_world.remove_object(game_object)
                     monster3.hp -= 40
                     break
+            elif str(game_object).find("magic") != -1: # magic와 충돌시
+                if math.sqrt((game_object.x - monster3.x)**2 + (game_object.y - monster3.y)**2) < 250 and get_time() >= monster3.time + 0.1:
+                    monster3.hp -= 20
+                    break
+
+        if get_time() >= monster3.time + 0.1: #다단히트 스킬땜시
+            monster3.time = get_time()
 
         if monster3.hp <= 0: #피가 0되서 죽음
             game_world.remove_object(monster3)
