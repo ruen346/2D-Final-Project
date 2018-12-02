@@ -6,7 +6,7 @@ class Fire:
     image = None
 
     def __init__(self, x, y):
-        self.image = load_image('image\\tower2_skill.png')
+        self.image = load_image('image\\fire.png')
         self.x, self.y = x, y
         self.time = get_time()
 

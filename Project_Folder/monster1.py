@@ -65,6 +65,13 @@ class IdleState:
                 if math.sqrt((game_object.x - monster1.x)**2 + (game_object.y - monster1.y)**2) < 250 and get_time() >= monster1.time + 0.1:
                     monster1.hp -= 20
                     break
+            elif str(game_object).find("boom") != -1: # boom와 충돌시
+                if game_object.x > monster1.x - 64 and game_object.x < monster1.x + 64 and game_object.y < monster1.y + 64 and  game_object.y > monster1.y - 64:
+                    game_world.remove_object(game_object)
+                    from fire import Fire
+                    fire = Fire(monster1.x, monster1.y)
+                    game_world.add_object(fire, 2)
+                    break
 
         if get_time() >= monster1.time + 0.1: #다단히트 스킬땜시
             monster1.time = get_time()
