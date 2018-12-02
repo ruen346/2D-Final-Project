@@ -23,8 +23,8 @@ class Buff_tower:
                         front_monster_x = game_object.x
                         front_monster_y = game_object.y
 
-        if get_time() >= self.time + 1: #화살발사
-            if front_monster_y != 720: #없으면 화살 발사 x
+        if get_time() >= self.time + 1: #대포발사
+            if front_monster_y != 720: #없으면 대포 발사 x
                 vector = (abs(front_monster_x - self.x) + abs(self.y - front_monster_y)) / 15
                 boom = Boom(self.x, self.y, (front_monster_x - self.x) / vector, (front_monster_y - self.y) / vector)
                 game_world.add_object(boom, 2)
