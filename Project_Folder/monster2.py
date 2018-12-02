@@ -61,6 +61,7 @@ class IdleState:
                     game_world.remove_object(game_object)
                     monster2.hp -= 40
                     break
+            
 
         if monster2.hp <= 0: #피가 0되서 죽음
             game_world.remove_object(monster2)
@@ -85,6 +86,7 @@ class Monster2:
         self.event_que = []
         self.cur_state = IdleState
         self.cur_state.enter(self, None)
+        self.time = get_time()
 
     def update(self):
         self.cur_state.do(self)

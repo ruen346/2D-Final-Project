@@ -85,6 +85,7 @@ class Boss:
         self.event_que = []
         self.cur_state = IdleState
         self.cur_state.enter(self, None)
+        self.time = get_time()
 
     def update(self):
         self.cur_state.do(self)

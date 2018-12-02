@@ -62,8 +62,8 @@ class IdleState:
                     monster1.hp -= 40
                     break
             elif str(game_object).find("magic") != -1: # magic와 충돌시
-                if game_object.x > monster1.x - 64 and game_object.x < monster1.x + 64 and game_object.y < monster1.y + 64 and  game_object.y > monster1.y - 64 and get_time() >= monster1.time + 0.1:
-                    monster1.hp -= 10
+                if math.sqrt((game_object.x - monster1.x)**2 + (game_object.y - monster1.y)**2) < 250 and get_time() >= monster1.time + 0.1:
+                    monster1.hp -= 15
                     break
 
         if get_time() >= monster1.time + 0.1: #다단히트 스킬땜시
