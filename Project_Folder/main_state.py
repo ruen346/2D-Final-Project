@@ -55,7 +55,7 @@ class Ui:
         self.arrow_tower_range = load_image('image\\arrow_tower_range.png')
         self.magic_tower_icon = load_image('image\\tower2_icon.png')
         self.magic_tower_click = load_image('image\\tower2_click.png')
-        self.magic_tower_range = load_image('image\\arrow_tower_range.png')
+        self.magic_tower_range = load_image('image\\magic_tower_range.png')
         self.buff_tower_icon = load_image('image\\tower3_icon.png')
         self.buff_tower_click = load_image('image\\tower3_click.png')
         self.buff_tower_range = load_image('image\\arrow_tower_range.png')
