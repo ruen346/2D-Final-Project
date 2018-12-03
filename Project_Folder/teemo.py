@@ -38,17 +38,17 @@ class IdleState:
             teemo.move = 6
 
         if teemo.move == 1:
-            teemo.x += 1.5
+            teemo.x += RUN_SPEED_PPS * game_framework.frame_time
         elif teemo.move == 2:
-            teemo.y -= 1.5
+            teemo.y -= RUN_SPEED_PPS * game_framework.frame_time
         elif teemo.move == 3:
-            teemo.x += 1.5
+            teemo.x += RUN_SPEED_PPS * game_framework.frame_time
         elif teemo.move == 4:
-            teemo.y += 1.5
+            teemo.y += RUN_SPEED_PPS * game_framework.frame_time
         elif teemo.move == 5:
-            teemo.x -= 1.5
+            teemo.x -= RUN_SPEED_PPS * game_framework.frame_time
         elif teemo.move == 6:
-            teemo.y += 1.5
+            teemo.y += RUN_SPEED_PPS * game_framework.frame_time
 
         for game_object in game_world.all_objects():
             if str(game_object).find("shot_arrow") != -1: # shot_arrow와 충돌시
