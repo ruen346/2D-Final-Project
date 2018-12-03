@@ -93,6 +93,13 @@ class Ui:
         self.stage_sp[4] = load_image('image\\stage5.png')
         self.stage_sp[5] = load_image('image\\stage6.png')
         self.stage_sp[6] = load_image('image\\stage7.png')
+
+        self.g70 = load_image('image\\70g.png')
+        self.g80 = load_image('image\\80g.png')
+        self.g100 = load_image('image\\100g.png')
+        self.g200 = load_image('image\\200g.png')
+        self.g400 = load_image('image\\400g.png')
+
         self.font = load_font('ENCR10B.TTF', 16)
         self.money = 100
         self.life = 20
@@ -102,6 +109,8 @@ class Ui:
         self.cho_build_tower = 0 #0이면 선택안됨, 어떤 설치된 타워를 눌렀는지
         self.cho_build_x = 0 #설치된 타워 눌렀을때 좌표x
         self.cho_build_y = 0 #설치된 타워 눌렀을때 좌표y
+
+        self.move_ui = 0
 
     def update(self):
         pass
@@ -141,6 +150,17 @@ class Ui:
         if get_time() - stage_time < 5:
             self.stage_sp[stage - 1].draw(640,360)
 
+        if self.move_ui == 1:
+            self.g70.draw(1280 - 64 * 3, 720 - 64)
+        elif self.move_ui == 2:
+            self.g80.draw(1280 - 64 * 3, 720 - 64 - 128)
+        elif self.move_ui == 3:
+            self.g100.draw(1280 - 64 * 3, 720 - 64 - 128 * 2)
+        elif self.move_ui == 4:
+            self.g200.draw(1280 - 64 * 3, 64)
+        elif self.move_ui == 5:
+            self.g200.draw(1280 - 64 * 3, 64)
+
 
 def enter():
     global ui, elf, tile, tile_under, time
@@ -172,6 +192,7 @@ def handle_events():
     global elf_upgrade
     global elf_d, elf_s
     global save
+    global move_ui
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
@@ -199,6 +220,19 @@ def handle_events():
         elif event.type == SDL_MOUSEMOTION:
             mouse_x, mouse_y = event.x, 720 - event.y
 
+            if mouse_x >= 1280 - 128 and mouse_x <= 1280 and mouse_y >= 720 - 128 and mouse_y <= 720:
+                ui.move_ui = 1
+            elif mouse_x >= 1280 - 128 and mouse_x <= 1280 and mouse_y >= 720 - 128 * 2 and mouse_y <= 720 - 128:
+                ui.move_ui = 2
+            elif mouse_x >= 1280 - 128 and mouse_x <= 1280 and mouse_y >= 720 - 128 * 3 and mouse_y <= 720 - 128 * 2:
+                ui.move_ui = 3
+            elif mouse_x >= 1280 - 128 and mouse_x <= 1280 and mouse_y >= 0 and mouse_y <= 128 and elf_upgrade == 0:
+                ui.move_ui = 4
+            elif mouse_x >= 1280 - 128 and mouse_x <= 1280 and mouse_y >= 0 and mouse_y <= 128 and elf_upgrade == 1:
+                ui.move_ui = 5
+            else:
+                ui.move_ui = 0
+
         ############################################################################# 마우스 좌클릭
         elif event.type == SDL_MOUSEBUTTONDOWN:
             save = None
@@ -210,11 +244,11 @@ def handle_events():
                 ui.cho_tower = 2
             elif mouse_x >= 1280 - 128 and mouse_x <= 1280 and mouse_y >= 720 - 128 * 3 and mouse_y <= 720 - 128 * 2 and ui.money >= 100:
                 ui.cho_tower = 3
-            elif mouse_x >= 1280 - 128 and mouse_x <= 1280 and mouse_y >= 0 and mouse_y <= 128 and elf_upgrade == 0 and ui.money >= 100:
+            elif mouse_x >= 1280 - 128 and mouse_x <= 1280 and mouse_y >= 0 and mouse_y <= 128 and elf_upgrade == 0 and ui.money >= 200:
                 ui.money -= 100
                 elf_upgrade = 1
                 elf_s = 0.15
-            elif mouse_x >= 1280 - 128 and mouse_x <= 1280 and mouse_y >= 0 and mouse_y <= 128 and elf_upgrade == 1 and ui.money >= 250:
+            elif mouse_x >= 1280 - 128 and mouse_x <= 1280 and mouse_y >= 0 and mouse_y <= 128 and elf_upgrade == 1 and ui.money >= 400:
                 ui.money -= 250
                 elf_upgrade = 2
                 elf_d = 80
