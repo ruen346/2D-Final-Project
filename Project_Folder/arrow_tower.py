@@ -4,6 +4,8 @@ import main_state
 import math
 from shot_arrow import Shot_arrow
 
+mouse_x = 0
+mouse_y = 0
 
 class Arrow_tower:
 
@@ -18,8 +20,8 @@ class Arrow_tower:
         if self.upgrade >= 1:
             self.delay = 0.7
 
-        front_monster_x = 0  # 맨앞 몬스터 좌표
-        front_monster_y = 720  # 맨앞 몬스터 좌표
+        front_monster_x = 0 # 맨앞 몬스터 좌표
+        front_monster_y = 720 # 맨앞 몬스터 좌표
         front_monster_move = 0 # 맨앞 몬스터 어디경로 이동
         for game_object in game_world.all_objects(): #맨앞 몬스터 위치
             if str(game_object).find("monster1") != -1 or str(game_object).find("monster2") != -1 or str(game_object).find("monster3") != -1 or str(game_object).find("monster4") != -1 or str(game_object).find("boss") != -1 or str(game_object).find("teemo") != -1:

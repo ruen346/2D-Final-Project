@@ -214,6 +214,12 @@ def handle_events():
             else:
                 ui.cho_build_tower = 0
 
+
+            for game_object in game_world.all_objects():
+                if str(game_object).find("arrow_tower") != -1:
+                    if mouse_x >= game_object.x + elf_move_window_x - 64 and mouse_x <= game_object.x + elf_move_window_x + 64 and mouse_y >= game_object.y + elf_move_window_y - 64 and mouse_y <= game_object.y + elf_move_window_y + 64:
+                        game_object.delay = 0.05
+
         ############################################################################# 마우스 좌클릭 땜
         elif event.type == SDL_MOUSEBUTTONUP:
             if tile.in_tower[int((mouse_x - elf_move_window_x - 64) / 128) + (int((720-(mouse_y - elf_move_window_y) + 64) / 128) * 20)] == 0 and game_framework.text3[int((mouse_x - elf_move_window_x - 64) / 128) + (int((720-(mouse_y - elf_move_window_y) + 64) / 128) * 20)] == '1':
