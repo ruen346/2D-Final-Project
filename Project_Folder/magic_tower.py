@@ -11,6 +11,7 @@ class Magic_tower:
         self.x, self.y = (i % 20) * 128 + 128, 720 - (i // 20) * 128
         self.image = load_image('image\\tower2.png')
         self.time = get_time()
+        self.upgrade = 0
 
     def update(self):
         for game_object in game_world.all_objects(): #맨앞 몬스터 위치

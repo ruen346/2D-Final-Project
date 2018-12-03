@@ -11,6 +11,7 @@ class Buff_tower:
         self.x, self.y = (i % 20) * 128 + 128, 720 - (i // 20) * 128
         self.image = load_image('image\\tower3.png')
         self.time = get_time()
+        self.upgrade = 0
 
     def update(self):
         front_monster_x = 0  # 맨앞 몬스터 좌표

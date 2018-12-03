@@ -44,7 +44,7 @@ class Tile_under:
                 self.tile4[4].draw((i % 20) * 128 + 64 + main_state.elf_move_window_x, 720 - (i // 20) * 128 - 64 + main_state.elf_move_window_y)
             elif game_framework.text2[i] == '9':
                 self.tile4[5].draw((i % 20) * 128 + 64 + main_state.elf_move_window_x, 720 - (i // 20) * 128 - 64 + main_state.elf_move_window_y)
-                
+
         for i in range(240):
             if game_framework.text3[i] == '2':
                 self.tile1_left.draw((i % 20) * 128 + 160 + main_state.elf_move_window_x, 720 - (i // 20) * 128 - 32 + main_state.elf_move_window_y)
