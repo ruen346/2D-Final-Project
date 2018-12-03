@@ -27,7 +27,7 @@ monster_spawn = monster_txt.split() #종류,초
 
 elf_upgrade = 0
 elf_d = 40
-elf_s = 0.3
+elf_s = 0.35
 tower1_d = 40
 tower2_d = 20
 tower3_d = 30
