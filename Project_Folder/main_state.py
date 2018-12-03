@@ -180,10 +180,19 @@ def handle_events():
             game_framework.quit()
 
         ############################################################################ 키보드 q또는 w 업글용
-        elif event.type == SDL_KEYDOWN and event.key == SDLK_a and save != None:
+        elif event.type == SDL_KEYDOWN and event.key == SDLK_q and save != None:
             if save.upgrade == 0 and ui.money >= 50:
                 save.upgrade = 1
                 ui.money -= 50
+            elif save.upgrade == 1 and ui.money >= 100:
+                save.upgrade = 2
+                ui.money -= 100
+            save = None
+
+        elif event.type == SDL_KEYDOWN and event.key == SDLK_w and save != None:
+            if save.upgrade == 1 and ui.money >= 120:
+                save.upgrade = 3
+                ui.money -= 120
             save = None
 
         ############################################################################# 마우스 움직임
