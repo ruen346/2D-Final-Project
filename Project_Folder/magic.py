@@ -5,9 +5,9 @@ import main_state
 class Magic:
     image = None
 
-    def __init__(self, x, y):
+    def __init__(self, x, y, damage):
         self.image = load_image('image\\tower2_skill.png')
-        self.x, self.y = x, y
+        self.x, self.y, self.damage = x, y, damage
         self.time = get_time()
 
     def draw(self):
