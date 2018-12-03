@@ -100,6 +100,13 @@ class Ui:
         self.g200 = load_image('image\\200g.png')
         self.g400 = load_image('image\\400g.png')
 
+        self.v1 = load_image('image\\v1.png')
+        self.v2 = load_image('image\\v2.png')
+        self.v3 = load_image('image\\v3.png')
+        self.v4 = load_image('image\\v4.png')
+        self.v5 = load_image('image\\v1.png')
+        self.v6 = load_image('image\\v6.png')
+
         self.font = load_font('ENCR10B.TTF', 16)
         self.money = 100
         self.life = 20
@@ -111,6 +118,10 @@ class Ui:
         self.cho_build_y = 0 #설치된 타워 눌렀을때 좌표y
 
         self.move_ui = 0
+
+        self.bgm = load_music('sound\\back.mp3')
+        self.bgm.set_volume(25)
+        self.bgm.repeat_play()
 
     def update(self):
         pass
@@ -160,6 +171,20 @@ class Ui:
             self.g200.draw(1280 - 64 * 3, 64)
         elif self.move_ui == 5:
             self.g200.draw(1280 - 64 * 3, 64)
+
+        if save != None: #설치된 타워 마우스 올릴때
+            if save.upgrade == 0 and str(save).find("arrow_tower") != -1:
+                self.v1.draw(save.x,save.y)
+            elif save.upgrade == 1 and str(save).find("arrow_tower") != -1:
+                self.v2.draw(save.x,save.y)
+            elif save.upgrade == 0 and str(save).find("magic_tower") != -1:
+                self.v3.draw(save.x,save.y)
+            elif save.upgrade == 1 and str(save).find("magic_tower") != -1:
+                self.v4.draw(save.x,save.y)
+            elif save.upgrade == 0 and str(save).find("buff_tower") != -1:
+                self.v5.draw(save.x,save.y)
+            elif save.upgrade == 1 and str(save).find("buff_tower") != -1:
+                self.v6.draw(save.x,save.y)
 
 
 def enter():
