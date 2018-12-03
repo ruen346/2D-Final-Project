@@ -12,8 +12,12 @@ class Buff_tower:
         self.image = load_image('image\\tower3.png')
         self.time = get_time()
         self.upgrade = 0
+        self.delay = 1.5
 
     def update(self):
+        if self.upgrade >= 1:
+            self.delay = 1
+
         front_monster_x = 0  # 맨앞 몬스터 좌표
         front_monster_y = 720  # 맨앞 몬스터 좌표
         front_monster_move = 0 # 맨앞 몬스터 어디경로 이동
@@ -24,7 +28,7 @@ class Buff_tower:
                         front_monster_x = game_object.x
                         front_monster_y = game_object.y
 
-        if get_time() >= self.time + 1: #대포발사
+        if get_time() >= self.time + self.delay: #대포발사
             if front_monster_y != 720: #없으면 대포 발사 x
                 vector = (abs(front_monster_x - self.x) + abs(self.y - front_monster_y)) / 15
                 boom = Boom(self.x, self.y, (front_monster_x - self.x) / vector, (front_monster_y - self.y) / vector)
