@@ -92,6 +92,8 @@ class IdleState:
     @staticmethod
     def draw(monster1):
         monster1.image.draw(monster1.x + main_state.elf_move_window_x, monster1.y + main_state.elf_move_window_y)
+        monster1.image_draw(monster1.x + main_state.elf_move_window_x, monster1.y + main_state.elf_move_window_y + 70)
+
 
 
 class Monster1:
@@ -99,6 +101,7 @@ class Monster1:
     def __init__(self):
         self.x, self.y = 0, 720-320
         self.image = load_image('image\\monster1.png')
+        self.hp_bar = load_image('image\\hp_bar.png')
         self.move = 1
         self.hp = 150
         self.event_que = []
