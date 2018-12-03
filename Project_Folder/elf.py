@@ -101,9 +101,9 @@ class RunState:
 
     @staticmethod
     def do(elf):
-        if game_framework.text3[int((elf.x + (elf.width * game_framework.frame_time) - 64) / 128) + (int((720 - elf.y + 128) / 128) * 20)] == '1':
+        if game_framework.text3[int((elf.x + (elf.width * game_framework.frame_time) - 64) / 128) + (int((720 - elf.y + 128) / 128) * 20)] == '1' or game_framework.text3[int((elf.x + (elf.width * game_framework.frame_time) - 64) / 128) + (int((720 - elf.y + 128) / 128) * 20)] == '5':
             elf.x += elf.width * game_framework.frame_time
-        if game_framework.text3[int((elf.x - 64) / 128) + (int((720 - (elf.y + (elf.high * game_framework.frame_time)) + 128) / 128) * 20)] == '1':
+        if game_framework.text3[int((elf.x - 64) / 128) + (int((720 - (elf.y + (elf.high * game_framework.frame_time)) + 128) / 128) * 20)] == '1' or game_framework.text3[int((elf.x + (elf.width * game_framework.frame_time) - 64) / 128) + (int((720 - elf.y + 128) / 128) * 20)] == '5':
             elf.y += elf.high * game_framework.frame_time
 
     @staticmethod
