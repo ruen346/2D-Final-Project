@@ -22,7 +22,6 @@ class Arrow_tower:
         if self.upgrade >= 1:
             self.delay = 0.7
         if self.upgrade == 2:
-
             self.damage = 20
         if self.upgrade == 3:
             self.range = 550

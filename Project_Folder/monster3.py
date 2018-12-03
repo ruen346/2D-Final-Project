@@ -69,13 +69,13 @@ class IdleState:
                 if game_object.x > monster3.x - 64 and game_object.x < monster3.x + 64 and game_object.y < monster3.y + 64 and  game_object.y > monster3.y - 64:
                     game_world.remove_object(game_object)
                     from fire import Fire
-                    fire = Fire(monster3.x, monster3.y)
+                    fire = Fire(monster3.x, monster3.y, game_object.damage)
                     game_world.add_object(fire, 2)
                     break
             elif str(game_object).find("fire") != -1: # fire와 충돌시
                 if math.sqrt((game_object.x - monster3.x)**2 + (game_object.y - monster3.y)**2) < 100 and get_time() >= monster3.time + 0.1:
                     game_world.remove_object(game_object)
-                    monster3.hp -= main_state.tower3_d
+                    monster3.hp -= main_state.tower3_d + game_object.damage
                     break
 
         if get_time() >= monster3.time + 0.1: #다단히트 스킬땜시
