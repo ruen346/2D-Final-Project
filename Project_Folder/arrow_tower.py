@@ -12,8 +12,12 @@ class Arrow_tower:
         self.image = load_image('image\\tower1.png')
         self.time = get_time()
         self.upgrade = 0
+        self.delay = 1
 
     def update(self):
+        if self.upgrade >= 1:
+            self.delay = 0.7
+
         front_monster_x = 0  # 맨앞 몬스터 좌표
         front_monster_y = 720  # 맨앞 몬스터 좌표
         front_monster_move = 0 # 맨앞 몬스터 어디경로 이동
@@ -23,8 +27,7 @@ class Arrow_tower:
                     if game_object.move > front_monster_move:
                         front_monster_x = game_object.x
                         front_monster_y = game_object.y
-
-        if get_time() >= self.time + 1: #화살발사
+        if get_time() >= self.time + self.delay: #화살발사
             if front_monster_y != 720: #없으면 화살 발사 x
                 vector = (abs(front_monster_x - self.x) + abs(self.y - front_monster_y)) / 25
                 shot_arrow = Shot_arrow(self.x, self.y, (front_monster_x - self.x) / vector, (front_monster_y - self.y) / vector)
