@@ -2,6 +2,7 @@ import random
 import json
 import os
 from asyncio.windows_events import NULL
+import title_state
 
 from pico2d import *
 import game_framework
@@ -50,6 +51,8 @@ monster_num = 0
 save = None
 
 name = "MainState"
+
+dead_time = 99999
 
 
 
@@ -106,6 +109,8 @@ class Ui:
         self.v4 = load_image('image\\v4.png')
         self.v5 = load_image('image\\v1.png')
         self.v6 = load_image('image\\v6.png')
+
+        self.dead = load_image('image\\game_over.png')
 
         self.font = load_font('ENCR10B.TTF', 16)
         self.money = 100
@@ -186,6 +191,8 @@ class Ui:
             elif save.upgrade == 1 and str(save).find("buff_tower") != -1:
                 self.v6.draw(save.x + elf_move_window_x,save.y + elf_move_window_y)
 
+        if self.life <= 0:
+            self.dead.draw(640,360)
 
 def enter():
     global ui, elf, tile, tile_under, time
@@ -331,7 +338,7 @@ def handle_events():
 
 
 def update():
-    global time, monster1, monster2, monster3, monster4, boss, teemo, stage_time, stage1_time, stage, monster_num, monster_spawn
+    global time, monster1, monster2, monster3, monster4, boss, teemo, stage_time, stage1_time, stage, monster_num, monster_spawn, dead_time
 
     for game_object in game_world.all_objects():
         game_object.update()
@@ -370,6 +377,12 @@ def update():
                 stage_time = get_time()
 
             monster_num += 2
+
+    if ui.life <= 0 and dead_time == 99999:
+        dead_time = get_time()
+
+    if dead_time < get_time() - 5:
+        game_framework.quit()
 
 
 def draw():
