@@ -92,6 +92,8 @@ class IdleState:
     @staticmethod
     def draw(monster3):
         monster3.image.draw(monster3.x + main_state.elf_move_window_x, monster3.y + main_state.elf_move_window_y)
+        monster3.hp_bar.draw(monster3.x + main_state.elf_move_window_x, monster3.y + main_state.elf_move_window_y + 70)
+        monster3.hp_red.clip_draw(2, 2, int(60 * monster3.hp / 150), 12, monster3.x + main_state.elf_move_window_x, monster3.y + main_state.elf_move_window_y + 70)
 
 
 class Monster3:
