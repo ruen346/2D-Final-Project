@@ -13,16 +13,19 @@ class Magic_tower:
         self.time = get_time()
         self.upgrade = 0
         self.damage = 0
+        self.delays = 0.5
 
     def update(self):
         if self.upgrade >= 1:
             self.damage = 10
+        if self.upgrade == 2:
+            self.delays = 0.7
 
         for game_object in game_world.all_objects(): #맨앞 몬스터 위치
             if str(game_object).find("monster1") != -1 or str(game_object).find("monster2") != -1 or str(game_object).find("monster3") != -1 or str(game_object).find("monster4") != -1 or str(game_object).find("boss") != -1 or str(game_object).find("teemo") != -1:
                 if math.sqrt((game_object.x - self.x)**2 + (game_object.y - self.y)**2) < 250:
                     if get_time() >= self.time + 1.5:  # 마법 사용
-                        magic = Magic(self.x, self.y, self.damage)
+                        magic = Magic(self.x, self.y, self.damage, self.delays)
                         game_world.add_object(magic, 2)
                         self.time = get_time()
 

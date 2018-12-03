@@ -190,7 +190,7 @@ def handle_events():
             save = None
 
         elif event.type == SDL_KEYDOWN and event.key == SDLK_w and save != None:
-            if save.upgrade == 1 and ui.money >= 120:
+            if save.upgrade == 1 and ui.money >= 120 and str(save).find("magic") == -1:
                 save.upgrade = 3
                 ui.money -= 120
             save = None

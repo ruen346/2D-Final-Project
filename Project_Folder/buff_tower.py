@@ -14,12 +14,15 @@ class Buff_tower:
         self.upgrade = 0
         self.delay = 1.5
         self.damage = 0
+        self.speeds = 5
 
     def update(self):
         if self.upgrade >= 1:
             self.delay = 1
         if self.upgrade == 2:
             self.damage = 15
+        if self.upgrade == 3:
+            self.speeds = 25
 
         front_monster_x = 0  # 맨앞 몬스터 좌표
         front_monster_y = 720  # 맨앞 몬스터 좌표
@@ -33,7 +36,7 @@ class Buff_tower:
 
         if get_time() >= self.time + self.delay: #대포발사
             if front_monster_y != 720: #없으면 대포 발사 x
-                vector = (abs(front_monster_x - self.x) + abs(self.y - front_monster_y)) / 15
+                vector = (abs(front_monster_x - self.x) + abs(self.y - front_monster_y)) / self.speeds
                 boom = Boom(self.x, self.y, (front_monster_x - self.x) / vector, (front_monster_y - self.y) / vector, self.damage)
                 game_world.add_object(boom, 2)
                 self.time = get_time()
