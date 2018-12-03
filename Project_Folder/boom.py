@@ -5,9 +5,9 @@ import main_state
 class Boom:
     image = None
 
-    def __init__(self, x, y, x_vector, y_vector):
+    def __init__(self, x, y, x_vector, y_vector, damage):
         self.image = load_image('image\\ball21x21.png')
-        self.x, self.y, self.x_vector, self.y_vector = x, y, x_vector, y_vector
+        self.x, self.y, self.x_vector, self.y_vector, self.damage = x, y, x_vector, y_vector, damage
 
     def draw(self):
         self.image.draw(self.x + main_state.elf_move_window_x, self.y + main_state.elf_move_window_y)
