@@ -38,17 +38,17 @@ class IdleState:
             monster3.move = 6
 
         if monster3.move == 1:
-            monster3.x += 1.5
+            monster3.x += RUN_SPEED_PPS * game_framework.frame_time
         elif monster3.move == 2:
-            monster3.y -= 1.5
+            monster3.y -= RUN_SPEED_PPS * game_framework.frame_time
         elif monster3.move == 3:
-            monster3.x += 1.5
+            monster3.x += RUN_SPEED_PPS * game_framework.frame_time
         elif monster3.move == 4:
-            monster3.y += 1.5
+            monster3.y += RUN_SPEED_PPS * game_framework.frame_time
         elif monster3.move == 5:
-            monster3.x -= 1.5
+            monster3.x -= RUN_SPEED_PPS * game_framework.frame_time
         elif monster3.move == 6:
-            monster3.y += 1.5
+            monster3.y += RUN_SPEED_PPS * game_framework.frame_time
 
         for game_object in game_world.all_objects():
             if str(game_object).find("shot_arrow") != -1: # shot_arrow와 충돌시
