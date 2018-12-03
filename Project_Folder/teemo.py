@@ -94,7 +94,7 @@ class IdleState:
     def draw(teemo):
         teemo.image.draw(teemo.x + main_state.elf_move_window_x, teemo.y + main_state.elf_move_window_y)
         teemo.hp_bar.draw(teemo.x + main_state.elf_move_window_x, teemo.y + main_state.elf_move_window_y + 90)
-        teemo.hp_red.clip_draw(2, 2, int(60 * teemo.hp / 10000), 12, teemo.x + main_state.elf_move_window_x, teemo.y + main_state.elf_move_window_y + 90)
+        teemo.hp_red.clip_draw(2, 2, int(60 * teemo.hp / 7000), 12, teemo.x + main_state.elf_move_window_x, teemo.y + main_state.elf_move_window_y + 90)
 
 
 class Teemo:
@@ -105,7 +105,7 @@ class Teemo:
         self.hp_bar = load_image('image\\hp_bar.png')
         self.hp_red = load_image('image\\hp_red.png')
         self.move = 1
-        self.hp = 10000
+        self.hp = 7000
         self.event_que = []
         self.cur_state = IdleState
         self.cur_state.enter(self, None)

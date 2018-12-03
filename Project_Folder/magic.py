@@ -9,6 +9,9 @@ class Magic:
         self.image = load_image('image\\tower2_skill.png')
         self.x, self.y, self.damage, self.delays = x, y, damage, delays
         self.time = get_time()
+        self.sound = load_wav('sound\\light.wav')
+        self.sound.set_volume(100)
+        self.sound.play()
 
     def draw(self):
         self.image.draw(self.x + main_state.elf_move_window_x, self.y + main_state.elf_move_window_y)

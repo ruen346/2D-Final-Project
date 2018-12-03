@@ -17,6 +17,8 @@ class Arrow_tower:
         self.delay = 1
         self.range = 450
         self.damage = 0
+        self.sound = load_wav('sound\\shot.wav')
+        self.sound.set_volume(100)
 
     def update(self):
         if self.upgrade >= 1:
@@ -41,6 +43,7 @@ class Arrow_tower:
                 shot_arrow = Shot_arrow(self.x, self.y, (front_monster_x - self.x) / vector, (front_monster_y - self.y) / vector, self.damage)
                 game_world.add_object(shot_arrow, 2)
                 self.time = get_time()
+                self.sound.play()
 
     def draw(self):
         self.image.draw(self.x + main_state.elf_move_window_x, self.y + main_state.elf_move_window_y)

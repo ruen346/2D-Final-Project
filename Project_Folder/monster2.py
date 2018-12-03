@@ -84,7 +84,7 @@ class IdleState:
         if monster2.hp <= 0: #피가 0되서 죽음
             monster2.sound.play()
             game_world.remove_object(monster2)
-            main_state.ui.money += 17
+            main_state.ui.money += 20
 
         if monster2.y > 720 + 64: #경로에 나가서 사라짐
             game_world.remove_object(monster2)

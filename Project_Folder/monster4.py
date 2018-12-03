@@ -84,7 +84,7 @@ class IdleState:
         if monster4.hp <= 0: #피가 0되서 죽음
             monster4.sound.play()
             game_world.remove_object(monster4)
-            main_state.ui.money += 22
+            main_state.ui.money += 30
 
         if monster4.y > 720 + 64: #경로에 나가서 사라짐
             game_world.remove_object(monster4)
@@ -94,7 +94,7 @@ class IdleState:
     def draw(monster4):
         monster4.image.draw(monster4.x + main_state.elf_move_window_x, monster4.y + main_state.elf_move_window_y)
         monster4.hp_bar.draw(monster4.x + main_state.elf_move_window_x, monster4.y + main_state.elf_move_window_y + 70)
-        monster4.hp_red.clip_draw(2, 2, int(60 * monster4.hp / 800), 12, monster4.x + main_state.elf_move_window_x, monster4.y + main_state.elf_move_window_y + 70)
+        monster4.hp_red.clip_draw(2, 2, int(60 * monster4.hp / 700), 12, monster4.x + main_state.elf_move_window_x, monster4.y + main_state.elf_move_window_y + 70)
 
 
 class Monster4:
@@ -105,7 +105,7 @@ class Monster4:
         self.hp_bar = load_image('image\\hp_bar.png')
         self.hp_red = load_image('image\\hp_red.png')
         self.move = 1
-        self.hp = 800
+        self.hp = 700
         self.event_que = []
         self.cur_state = IdleState
         self.cur_state.enter(self, None)

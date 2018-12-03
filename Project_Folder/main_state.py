@@ -30,7 +30,7 @@ elf_upgrade = 0
 elf_d = 40
 elf_s = 0.35
 tower1_d = 40
-tower2_d = 20
+tower2_d = 17
 tower3_d = 40
 
 
@@ -120,7 +120,7 @@ class Ui:
         self.move_ui = 0
 
         self.bgm = load_music('sound\\back.mp3')
-        self.bgm.set_volume(25)
+        self.bgm.set_volume(15)
         self.bgm.repeat_play()
 
     def update(self):
@@ -170,21 +170,21 @@ class Ui:
         elif self.move_ui == 4:
             self.g200.draw(1280 - 64 * 3, 64)
         elif self.move_ui == 5:
-            self.g200.draw(1280 - 64 * 3, 64)
+            self.g400.draw(1280 - 64 * 3, 64)
 
         if save != None: #설치된 타워 마우스 올릴때
             if save.upgrade == 0 and str(save).find("arrow_tower") != -1:
-                self.v1.draw(save.x,save.y)
+                self.v1.draw(save.x + elf_move_window_x,save.y + elf_move_window_y)
             elif save.upgrade == 1 and str(save).find("arrow_tower") != -1:
-                self.v2.draw(save.x,save.y)
+                self.v2.draw(save.x + elf_move_window_x,save.y + elf_move_window_y)
             elif save.upgrade == 0 and str(save).find("magic_tower") != -1:
-                self.v3.draw(save.x,save.y)
+                self.v3.draw(save.x + elf_move_window_x,save.y + elf_move_window_y)
             elif save.upgrade == 1 and str(save).find("magic_tower") != -1:
-                self.v4.draw(save.x,save.y)
+                self.v4.draw(save.x + elf_move_window_x,save.y + elf_move_window_y)
             elif save.upgrade == 0 and str(save).find("buff_tower") != -1:
-                self.v5.draw(save.x,save.y)
+                self.v5.draw(save.x + elf_move_window_x,save.y + elf_move_window_y)
             elif save.upgrade == 1 and str(save).find("buff_tower") != -1:
-                self.v6.draw(save.x,save.y)
+                self.v6.draw(save.x + elf_move_window_x,save.y + elf_move_window_y)
 
 
 def enter():
