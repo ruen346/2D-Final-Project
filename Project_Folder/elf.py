@@ -129,6 +129,7 @@ class Elf:
         self.cur_state.enter(self, None)
         self.look_vector = 1 #0부터 상하좌우
         self.time = get_time()
+        self.space = 0
 
     def add_event(self, event):
         self.event_que.insert(0, event)
@@ -146,15 +147,7 @@ class Elf:
             self.cur_state = next_state_table[self.cur_state][event]
             self.cur_state.enter(self, event)
 
-    def draw(self):
-        self.cur_state.draw(self)
-
-    def handle_event(self, event):
-        if (event.type, event.key) in key_event_table:
-            key_event = key_event_table[(event.type, event.key)]
-            self.add_event(key_event)
-
-        if event.type == SDL_KEYDOWN and event.key == SDLK_SPACE:
+        if self.space == 1:
             if get_time() >= self.time + main_state.elf_s:  # 화살발사
                 if self.look_vector == 0:
                     elf_arrow = Elf_arrow(self.x, self.y, 0, 10)
@@ -167,3 +160,16 @@ class Elf:
 
                 game_world.add_object(elf_arrow, 2)
                 self.time = get_time()
+
+    def draw(self):
+        self.cur_state.draw(self)
+
+    def handle_event(self, event):
+        if (event.type, event.key) in key_event_table:
+            key_event = key_event_table[(event.type, event.key)]
+            self.add_event(key_event)
+
+        if event.type == SDL_KEYDOWN and event.key == SDLK_SPACE:
+            self.space = 1
+        if event.type == SDL_KEYUP and event.key == SDLK_SPACE:
+            self.space = 0
