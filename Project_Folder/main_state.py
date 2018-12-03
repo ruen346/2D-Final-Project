@@ -181,18 +181,18 @@ def handle_events():
 
         ############################################################################ 키보드 q또는 w 업글용
         elif event.type == SDL_KEYDOWN and event.key == SDLK_q and save != None:
-            if save.upgrade == 0 and ui.money >= 50:
+            if save.upgrade == 0 and ui.money >= 120:
                 save.upgrade = 1
-                ui.money -= 50
-            elif save.upgrade == 1 and ui.money >= 100:
+                ui.money -= 120
+            elif save.upgrade == 1 and ui.money >= 160:
                 save.upgrade = 2
-                ui.money -= 100
+                ui.money -= 160
             save = None
 
         elif event.type == SDL_KEYDOWN and event.key == SDLK_w and save != None:
-            if save.upgrade == 1 and ui.money >= 120 and str(save).find("magic") == -1:
+            if save.upgrade == 1 and ui.money >= 180 and str(save).find("magic") == -1:
                 save.upgrade = 3
-                ui.money -= 120
+                ui.money -= 180
             save = None
 
         ############################################################################# 마우스 움직임

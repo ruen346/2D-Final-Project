@@ -87,7 +87,7 @@ class IdleState:
 
         if boss.y > 720 + 64: #경로에 나가서 사라짐
             game_world.remove_object(boss)
-            main_state.ui.life -= 1
+            main_state.ui.life -= 5
 
     @staticmethod
     def draw(boss):
