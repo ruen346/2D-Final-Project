@@ -110,8 +110,8 @@ class Teemo:
         self.cur_state = IdleState
         self.cur_state.enter(self, None)
         self.time = get_time()
-        self.sound = load_wav('teemo_dead.mp3')
-        self.sound.set_volume(32)
+        self.sound = load_wav('sound\\teemo_dead.wav')
+        self.sound.set_volume(35)
 
     def update(self):
         self.cur_state.do(self)
