@@ -31,7 +31,7 @@ elf_d = 40
 elf_s = 0.35
 tower1_d = 40
 tower2_d = 20
-tower3_d = 30
+tower3_d = 40
 
 
 mouse_x = 0
@@ -204,11 +204,11 @@ def handle_events():
             save = None
 
             ui.left_click = 1
-            if mouse_x >= 1280 - 128 and mouse_x <= 1280 and mouse_y >= 720 - 128 and mouse_y <= 720 and ui.money >= 20:
+            if mouse_x >= 1280 - 128 and mouse_x <= 1280 and mouse_y >= 720 - 128 and mouse_y <= 720 and ui.money >= 70:
                 ui.cho_tower = 1
-            elif mouse_x >= 1280 - 128 and mouse_x <= 1280 and mouse_y >= 720 - 128 * 2 and mouse_y <= 720 - 128 and ui.money >= 30:
+            elif mouse_x >= 1280 - 128 and mouse_x <= 1280 and mouse_y >= 720 - 128 * 2 and mouse_y <= 720 - 128 and ui.money >= 80:
                 ui.cho_tower = 2
-            elif mouse_x >= 1280 - 128 and mouse_x <= 1280 and mouse_y >= 720 - 128 * 3 and mouse_y <= 720 - 128 * 2 and ui.money >= 40:
+            elif mouse_x >= 1280 - 128 and mouse_x <= 1280 and mouse_y >= 720 - 128 * 3 and mouse_y <= 720 - 128 * 2 and ui.money >= 100:
                 ui.cho_tower = 3
             elif mouse_x >= 1280 - 128 and mouse_x <= 1280 and mouse_y >= 0 and mouse_y <= 128 and elf_upgrade == 0 and ui.money >= 100:
                 ui.money -= 100
@@ -251,19 +251,19 @@ def handle_events():
                     arrow_tower = Arrow_tower(i)
                     game_world.add_object(arrow_tower, 2)
                     tile.time[i] = int(get_time())
-                    ui.money -= 20 # 돈차감
+                    ui.money -= 70 # 돈차감
                 elif (ui.cho_tower == 2):  # 타워2설치
                     i = int((mouse_x - elf_move_window_x - 64) / 128) + (int((720 - (mouse_y - elf_move_window_y) + 64) / 128) * 20)
                     magic_tower = Magic_tower(i)
                     game_world.add_object(magic_tower, 2)
                     tile.time[i] = int(get_time())
-                    ui.money -= 30  # 돈차감
+                    ui.money -= 80  # 돈차감
                 elif (ui.cho_tower == 3):  # 타워3설치
                     i = int((mouse_x - elf_move_window_x - 64) / 128) + (int((720 - (mouse_y - elf_move_window_y) + 64) / 128) * 20)
                     buff_tower = Buff_tower(i)
                     game_world.add_object(buff_tower, 2)
                     tile.time[i] = int(get_time())
-                    ui.money -= 40  # 돈차감
+                    ui.money -= 100  # 돈차감
             ui.left_click = 0
             ui.cho_tower = 0
 

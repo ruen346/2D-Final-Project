@@ -67,10 +67,10 @@ class IdleState:
                     break
             elif str(game_object).find("boom") != -1: # boom와 충돌시
                 if game_object.x > teemo.x - 64 and game_object.x < teemo.x + 64 and game_object.y < teemo.y + 64 and  game_object.y > teemo.y - 64:
-                    game_world.remove_object(game_object)
                     from fire import Fire
                     fire = Fire(teemo.x, teemo.y, game_object.damage)
                     game_world.add_object(fire, 2)
+                    game_world.remove_object(game_object)
                     break
             elif str(game_object).find("fire") != -1: # fire와 충돌시
                 if math.sqrt((game_object.x - teemo.x)**2 + (game_object.y - teemo.y)**2) < 100 and get_time() >= teemo.time + 0.1:
