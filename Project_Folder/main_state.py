@@ -180,6 +180,11 @@ def handle_events():
             game_framework.quit()
 
         ############################################################################ 키보드 q또는 w 업글용
+        elif event.type == SDL_KEYDOWN and event.key == SDLK_a and save != None:
+            if save.upgrade == 0 and ui.money >= 50:
+                save.upgrade = 1
+                ui.money -= 50
+            save = None
 
         ############################################################################# 마우스 움직임
         elif event.type == SDL_MOUSEMOTION:
@@ -187,6 +192,8 @@ def handle_events():
 
         ############################################################################# 마우스 좌클릭
         elif event.type == SDL_MOUSEBUTTONDOWN:
+            save = None
+
             ui.left_click = 1
             if mouse_x >= 1280 - 128 and mouse_x <= 1280 and mouse_y >= 720 - 128 and mouse_y <= 720 and ui.money >= 20:
                 ui.cho_tower = 1
@@ -250,8 +257,6 @@ def handle_events():
                     ui.money -= 40  # 돈차감
             ui.left_click = 0
             ui.cho_tower = 0
-
-            save = None
 
         else:
             elf.handle_event(event)
