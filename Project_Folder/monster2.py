@@ -54,7 +54,7 @@ class IdleState:
             if str(game_object).find("shot_arrow") != -1: # shot_arrow와 충돌시
                 if game_object.x > monster2.x - 64 and game_object.x < monster2.x + 64 and game_object.y < monster2.y + 64 and  game_object.y > monster2.y - 64:
                     game_world.remove_object(game_object)
-                    monster2.hp -= main_state.tower1_d
+                    monster2.hp -= main_state.tower1_d + game_object.damage
                     break
             elif str(game_object).find("elf_arrow") != -1: # elf_arrow와 충돌시
                 if game_object.x > monster2.x - 64 and game_object.x < monster2.x + 64 and game_object.y < monster2.y + 64 and  game_object.y > monster2.y - 64:
