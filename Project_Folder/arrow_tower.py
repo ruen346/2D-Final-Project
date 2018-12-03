@@ -16,10 +16,13 @@ class Arrow_tower:
         self.upgrade = 0
         self.delay = 1
         self.range = 450
+        self.damage = 0
 
     def update(self):
         if self.upgrade >= 1:
             self.delay = 0.7
+        if self.upgrade == 2:
+            self.damage = 20
         if self.upgrade == 3:
             self.range = 550
 
@@ -35,7 +38,7 @@ class Arrow_tower:
         if get_time() >= self.time + self.delay: #화살발사
             if front_monster_y != 720: #없으면 화살 발사 x
                 vector = (abs(front_monster_x - self.x) + abs(self.y - front_monster_y)) / 25
-                shot_arrow = Shot_arrow(self.x, self.y, (front_monster_x - self.x) / vector, (front_monster_y - self.y) / vector)
+                shot_arrow = Shot_arrow(self.x, self.y, (front_monster_x - self.x) / vector, (front_monster_y - self.y) / vector, self.damage)
                 game_world.add_object(shot_arrow, 2)
                 self.time = get_time()
 

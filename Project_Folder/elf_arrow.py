@@ -16,5 +16,5 @@ class Elf_arrow:
         self.x += self.x_vector
         self.y += self.y_vector
 
-        if self.x < 25 or self.x > 1600 - 25:
+        if self.x < 25 or self.x > 4000 or self.y > 720 or self.y < -2000:
             game_world.remove_object(self)
