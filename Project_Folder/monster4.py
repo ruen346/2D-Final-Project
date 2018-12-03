@@ -82,6 +82,7 @@ class IdleState:
             monster4.time = get_time()
 
         if monster4.hp <= 0: #피가 0되서 죽음
+            monster4.sound.play()
             game_world.remove_object(monster4)
             main_state.ui.money += 22
 
@@ -109,6 +110,8 @@ class Monster4:
         self.cur_state = IdleState
         self.cur_state.enter(self, None)
         self.time = get_time()
+        self.sound = load_wav('sound\\dead.wav')
+        self.sound.set_volume(46)
 
     def update(self):
         self.cur_state.do(self)

@@ -130,6 +130,8 @@ class Elf:
         self.look_vector = 1 #0부터 상하좌우
         self.time = get_time()
         self.space = 0
+        self.sound = load_wav('sound\\shot.wav')
+        self.sound.set_volume(100)
 
     def add_event(self, event):
         self.event_que.insert(0, event)
@@ -160,6 +162,7 @@ class Elf:
 
                 game_world.add_object(elf_arrow, 2)
                 self.time = get_time()
+                self.sound.play()
 
     def draw(self):
         self.cur_state.draw(self)
