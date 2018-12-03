@@ -1,6 +1,7 @@
 import random
 import json
 import os
+from asyncio.windows_events import NULL
 
 from pico2d import *
 import game_framework
@@ -45,6 +46,8 @@ time = get_time()
 stage_time = -5
 stage1_time = 0
 monster_num = 0
+
+save = None
 
 name = "MainState"
 
@@ -168,12 +171,15 @@ def handle_events():
     global mouse_y
     global elf_upgrade
     global elf_d, elf_s
+    global save
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
             game_framework.quit()
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             game_framework.quit()
+
+        ############################################################################ 키보드 q또는 w 업글용
 
         ############################################################################# 마우스 움직임
         elif event.type == SDL_MOUSEMOTION:
@@ -216,9 +222,9 @@ def handle_events():
 
 
             for game_object in game_world.all_objects():
-                if str(game_object).find("arrow_tower") != -1:
+                if str(game_object).find("arrow_tower") != -1 or str(game_object).find("magic_tower") != -1 or str(game_object).find("buff_tower") != -1:
                     if mouse_x >= game_object.x + elf_move_window_x - 64 and mouse_x <= game_object.x + elf_move_window_x + 64 and mouse_y >= game_object.y + elf_move_window_y - 64 and mouse_y <= game_object.y + elf_move_window_y + 64:
-                        game_object.delay = 0.05
+                        save = game_object
 
         ############################################################################# 마우스 좌클릭 땜
         elif event.type == SDL_MOUSEBUTTONUP:
@@ -244,6 +250,8 @@ def handle_events():
                     ui.money -= 40  # 돈차감
             ui.left_click = 0
             ui.cho_tower = 0
+
+            save = None
 
         else:
             elf.handle_event(event)
