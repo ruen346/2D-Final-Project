@@ -92,15 +92,18 @@ class IdleState:
     @staticmethod
     def draw(boss):
         boss.image.draw(boss.x + main_state.elf_move_window_x, boss.y + main_state.elf_move_window_y)
-
+        boss.hp_bar.draw(boss.x + main_state.elf_move_window_x, boss.y + main_state.elf_move_window_y + 70)
+        boss.hp_red.clip_draw(2, 2, int(60 * boss.hp / 4500), 12, boss.x + main_state.elf_move_window_x, boss.y + main_state.elf_move_window_y + 70)
 
 class Boss:
 
     def __init__(self):
         self.x, self.y = 0, 720-320
         self.image = load_image('image\\monster1.png')
+        self.hp_bar = load_image('image\\hp_bar.png')
+        self.hp_red = load_image('image\\hp_red.png')
         self.move = 1
-        self.hp = 800
+        self.hp = 4500
         self.event_que = []
         self.cur_state = IdleState
         self.cur_state.enter(self, None)
