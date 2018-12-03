@@ -93,7 +93,7 @@ class IdleState:
     def draw(monster2):
         monster2.image.draw(monster2.x + main_state.elf_move_window_x, monster2.y + main_state.elf_move_window_y)
         monster2.hp_bar.draw(monster2.x + main_state.elf_move_window_x, monster2.y + main_state.elf_move_window_y + 70)
-        monster2.hp_red.clip_draw(2, 2, int(60 * monster2.hp / 150), 12, monster2.x + main_state.elf_move_window_x, monster2.y + main_state.elf_move_window_y + 70)
+        monster2.hp_red.clip_draw(2, 2, int(60 * monster2.hp / 300), 12, monster2.x + main_state.elf_move_window_x, monster2.y + main_state.elf_move_window_y + 70)
 
 
 class Monster2:
