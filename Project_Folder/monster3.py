@@ -61,9 +61,9 @@ class IdleState:
                     game_world.remove_object(game_object)
                     monster3.hp -= main_state.elf_d
                     break
-            elif str(game_object).find("magic") != -1: # magic와 충돌시
+            elif str(game_object).find("magic") != -1 and str(game_object).find("tower") == -1:  # magic와 충돌시
                 if math.sqrt((game_object.x - monster3.x)**2 + (game_object.y - monster3.y)**2) < 250 and get_time() >= monster3.time + 0.1:
-                    monster3.hp -= main_state.tower2_d
+                    monster3.hp -= main_state.tower2_d + game_object.damage
                     break
             elif str(game_object).find("boom") != -1: # boom와 충돌시
                 if game_object.x > monster3.x - 64 and game_object.x < monster3.x + 64 and game_object.y < monster3.y + 64 and  game_object.y > monster3.y - 64:
