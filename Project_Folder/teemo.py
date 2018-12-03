@@ -82,6 +82,7 @@ class IdleState:
             teemo.time = get_time()
 
         if teemo.hp <= 0: #피가 0되서 죽음
+            teemo.sound.play()
             game_world.remove_object(teemo)
             main_state.ui.money += 500
 
@@ -109,6 +110,8 @@ class Teemo:
         self.cur_state = IdleState
         self.cur_state.enter(self, None)
         self.time = get_time()
+        self.sound = load_wav('teemo_dead.mp3')
+        self.sound.set_volume(32)
 
     def update(self):
         self.cur_state.do(self)
