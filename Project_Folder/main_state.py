@@ -27,6 +27,7 @@ monster_spawn = monster_txt.split() #종류,초
 
 elf_upgrade = 0
 elf_d = 40
+elf_s = 0.3
 tower1_d = 40
 tower2_d = 20
 tower3_d = 30
@@ -166,6 +167,7 @@ def handle_events():
     global mouse_x
     global mouse_y
     global elf_upgrade
+    global elf_d, elf_s
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
@@ -189,9 +191,11 @@ def handle_events():
             elif mouse_x >= 1280 - 128 and mouse_x <= 1280 and mouse_y >= 0 and mouse_y <= 128 and elf_upgrade == 0 and ui.money >= 100:
                 ui.money -= 100
                 elf_upgrade = 1
+                elf_s = 0.15
             elif mouse_x >= 1280 - 128 and mouse_x <= 1280 and mouse_y >= 0 and mouse_y <= 128 and elf_upgrade == 1 and ui.money >= 250:
                 ui.money -= 250
                 elf_upgrade = 2
+                elf_d = 80
             else:
                 ui.cho_tower = 0
 
