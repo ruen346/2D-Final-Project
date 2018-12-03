@@ -17,6 +17,8 @@ class Tile_under:
         self.tile4[4] = load_image('image\\tile4_RU.png')
         self.tile4[5] = load_image('image\\tile4_width.png')
 
+        self.tile1_left = load_image('image\\tile1_left.png')
+        self.tile1_down = load_image('image\\tile1_down.png')
 
     def update(self):
         pass
@@ -42,3 +44,12 @@ class Tile_under:
                 self.tile4[4].draw((i % 20) * 128 + 64 + main_state.elf_move_window_x, 720 - (i // 20) * 128 - 64 + main_state.elf_move_window_y)
             elif game_framework.text2[i] == '9':
                 self.tile4[5].draw((i % 20) * 128 + 64 + main_state.elf_move_window_x, 720 - (i // 20) * 128 - 64 + main_state.elf_move_window_y)
+                
+        for i in range(240):
+            if game_framework.text3[i] == '2':
+                self.tile1_left.draw((i % 20) * 128 + 160 + main_state.elf_move_window_x, 720 - (i // 20) * 128 - 32 + main_state.elf_move_window_y)
+            elif game_framework.text3[i] == '3':
+                self.tile1_down.draw((i % 20) * 128 + 96 + main_state.elf_move_window_x, 720 - (i // 20) * 128 + 32 + main_state.elf_move_window_y)
+            elif game_framework.text3[i] == '4':
+                self.tile1_left.draw((i % 20) * 128 + 160 + main_state.elf_move_window_x, 720 - (i // 20) * 128 - 32 + main_state.elf_move_window_y)
+                self.tile1_down.draw((i % 20) * 128 + 96 + main_state.elf_move_window_x, 720 - (i // 20) * 128 + 32 + main_state.elf_move_window_y)
